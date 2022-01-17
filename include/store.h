@@ -15,7 +15,7 @@
 #ifndef _Store_h
 #define _Store_h
 
- //#include <Arduino.h>
+ #include <Arduino.h>
 // #include <ui_io.h>
 // #include "defs.h"
 //#include <EEPROM.h>
