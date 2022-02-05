@@ -59,6 +59,10 @@ public:
     void print( byte id );
     void printMemUsage();
 };
+/**
+ * @brief Wrapper for storageBlock_C but working with only 1 block id
+ * 
+ */
 class blockMem_C {// todo . can't be bother right now though.
 private:
     byte id;

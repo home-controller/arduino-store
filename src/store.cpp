@@ -76,6 +76,15 @@ void storageBlock_C::printMemUsage() {
 
 }
 
+/**
+ * @brief Add a storage block.
+ * 
+ * No range checking
+ * 
+ * @param slots number of slots to add
+ * @param recSize size of each block in bytes.
+ * @return byte returns the id of the block.
+ */
 byte storageBlock_C::addBlock( byte slots, byte recSize ) {
     blocksA[ slotsUsed ].start = eeprom_used;
     blocksA[ slotsUsed ].slots = slots;
