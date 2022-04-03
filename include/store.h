@@ -46,8 +46,8 @@ public:
 
     // block info.
     byte blockSize( byte id );
-    byte blockStart( byte blockId );
-    byte blockEnd( byte id );
+    word blockStart( byte blockId );
+    word blockEnd( byte id );
 
     // Working with a slot in a block.
     byte getSlots(byte id) {return blocksA[id].slots;}

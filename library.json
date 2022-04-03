@@ -1,6 +1,6 @@
 {
   "name": "store",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "For very simple storage of variables between MCU reboots/resets with EEPROM etc.",
   "keywords": "storage EEPROM save",
   "repository":

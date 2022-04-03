@@ -37,7 +37,7 @@ byte storageBlock_C::blockSize( byte id ) {
  * @param id Block id, index into blocksA[]
  * @return byte
  */
-byte storageBlock_C::blockEnd( byte id ) {
+word storageBlock_C::blockEnd( byte id ) {
     return blocksA[ id ].start + blocksA[ id ].slots * blocksA[ id ].size - 1;
     //mem for block = number of slots * slot size. 
     //mem used before block = blocksA[ id ].start - 1.
@@ -50,8 +50,9 @@ void storageBlock_C::leaveFirst( byte i ) {
 };
 
 void storageBlock_C::print( byte id ) {
-    io_print( " storage start address: " ); io_print_n( blocksA[ id ].start );
-    io_print( ", end address: " ); io_print_n( blockEnd( id ) );
+    io_print( " storage id: " ); io_print_n( id );
+    io_print( ", start address: " ); io_print_n( blocksA[ id ].start );
+    io_print( ", end addr: " ); io_print_n( blockEnd( id ) );
     io_print( ", bytes used: " ); io_println_n( blockSize( id ) );
 }
 
@@ -94,7 +95,7 @@ byte storageBlock_C::addBlock( byte slots, byte recSize ) {
     return slotsUsed - 1;
 };
 
-byte storageBlock_C::blockStart( byte blockId ) {
+word storageBlock_C::blockStart( byte blockId ) {
     return blocksA[ blockId ].start;
 }
 
