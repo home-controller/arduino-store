@@ -53,7 +53,7 @@ void storageBlock_C::print( byte id ) {
     io_print( " storage id: " ); io_print_n( id );
     io_print( ", start address: " ); io_print_n( blocksA[ id ].start );
     io_print( ", end addr: " ); io_print_n( blockEnd( id ) );
-    io_print( ", bytes used: " ); io_println_n( blockSize( id ) );
+    io_print( ", bytes used: " ); io_print_n( blockSize( id ) );
 }
 
 void storageBlock_C::printMemUsage() {
