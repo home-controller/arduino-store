@@ -9,9 +9,10 @@
  *
  */
 #include "store.h"
-#include <EEPROM.h>
+#include "/home/jmnc2/.platformio/packages/framework-arduino-avr/libraries/EEPROM/src/EEPROM.h"
 #include <ui_io.h>
-#include "defs.h"
+#include "/home/jmnc2/doc/src/Arduino/libraries/defs/src/defs.h"
+
 
 storageBlock_C::storageBlock_C( byte maxBlocks, storageBlock_T a[ ], byte startIndex ) {
     blocksA = a;

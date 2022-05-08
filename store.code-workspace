@@ -1,6 +1,11 @@
 {
 	"folders": [
 		{
+			"name": "test_store",
+			"path": "../../../../../Documents/PlatformIO/Projects/test_store"
+		},
+		{
+			"name": "store",
 			"path": "."
 		}
 	],

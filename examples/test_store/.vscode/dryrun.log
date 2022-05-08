@@ -1,0 +1,6 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory '/home/jmnc2/doc/src/Arduino/libraries/store/examples/test_store'
+make: Leaving directory '/home/jmnc2/doc/src/Arduino/libraries/store/examples/test_store'
+ 
+make: *** No targets specified and no makefile found.  Stop.
+
