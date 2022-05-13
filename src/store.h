@@ -81,6 +81,7 @@ public:
     byte getId() { return id; }
     void setMemManager(storageBlock_C& o) { memManager = &o; }
     byte blockSize() { return memManager->blockSize(id); }///mem for block = number of slots * slot size.
+    byte slotSize() { return memManager->blocksA[id].size; }
     byte readByte(byte slot, byte offset) { return memManager->readByte(id, slot, offset); }
     bool readSlot(byte slot, void* r);
     bool writeByte(byte slot, byte offset, byte value) { return memManager->writeByte(id, slot, offset, value); }
