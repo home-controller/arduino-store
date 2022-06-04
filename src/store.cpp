@@ -1,7 +1,7 @@
 /**
  * @file store.h
  * @author Joseph (you@domain.com)
- * @brief To help with very simple data saving betwean MCU resets. For now only using inbuilt EEPROM
+ * @brief To help with very simple data saving between MCU resets. For now only using inbuilt EEPROM
  * @version 0.0.1
  * @date 2021-12-28
  *
@@ -33,7 +33,7 @@ byte storageBlock_C::blockSize( byte id ) {
 
 /**
  * @brief get block end index. i.e. the address of last byte used by the block.
- * If block size is 0 there isn't a block end so result will be meningless.
+ * If block size is 0 there isn't a block end so result will be meaningless.
  *
  * @param id Block id, index into blocksA[]
  * @return byte
@@ -73,7 +73,7 @@ void storageBlock_C::printMemUsage() {
     io_print_n( eeprom_used );
     io_print( "bytes, EEPROM memory left bytes = " );
     io_print_n( ( mem_eeprom - ( eeprom_used ) ) );
-    io_print( "bytes, persentage left \u2248 " );//useing this ≈ works to
+    io_print( "bytes, percentage left \u2248 " );//using this ≈ works to
     io_print_n( ( ( mem_eeprom - ( eeprom_used ) ) * 100ul ) / mem_eeprom ); io_println( "%" );
 
 }
@@ -170,6 +170,16 @@ bool storageBlock_C::writeByte( byte blockId, byte slot, byte offset, byte value
 }
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++ class blockMem_C+++++++===================
+
+/**
+ * @brief Read a slot of data from storage. e.g. eeprom, flash, SDcard(only eeprom for now)
+ * 
+ * @param[in] slot  The slot to read, mem copy len is = the size of the rec/slot. 0 for first.
+ * @param[out] r  pointer to the memory to copy the slot into. As not using templates need to make sure sizeof(var pointed to by r) >= slot size.
+
+ * @return true true if no problems
+ * @return false 
+ */
 bool blockMem_C::readSlot( byte slot, void* r ) {
     //io_print( ", sizeof(memManager):" ); io_print_n( sizeof( memManager ) );
     //io_print( ", memManager:" ); io_print_n( ( word )( &( *memManager ) ) );
