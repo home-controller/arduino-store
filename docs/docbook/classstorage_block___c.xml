@@ -1,0 +1,689 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_classstorage_block___c" xml:lang="en-US">
+<title>storageBlock_C Class Reference</title>
+<indexterm><primary>storageBlock_C</primary></indexterm>
+<para>
+
+<para>Blocks of storage. eg. 1 block for 1wire chips and another for room data. each of different lengths with differnet ids. </para>
+ 
+</para>
+<para>
+<computeroutput>#include &lt;store.h&gt;</computeroutput>
+</para>
+Collaboration diagram for storageBlock_C:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="classstorage_block___c__coll__graph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_classstorage_block___c_1a9020da58b3765ed6bd53da41c55b9eb7">storageBlock_C</link> (byte <link linkend="_classstorage_block___c_1ab6449bda89cd0dab792e60e5ee862939">maxBlocks</link>, <link linkend="_store_8h_1structstorage_block___t">storageBlock_T</link> a[], byte startIndex=0)</para>
+</listitem>
+            <listitem><para><link linkend="_classstorage_block___c_1afe17040108c5d920b01d871585c150f8">~storageBlock_C</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_classstorage_block___c_1a0f4aa42b1755c6439528a6a6f72043f8">leaveFirst</link> (byte i)</para>
+</listitem>
+            <listitem><para>byte <link linkend="_classstorage_block___c_1ac9ae09aee8e89280fd15dcae118a7783">addBlock</link> (byte slots, byte recSize)</para>
+
+<para>Add a storage block. </para>
+</listitem>
+            <listitem><para>byte <link linkend="_classstorage_block___c_1ab118a805d45d5b6208fbd31dface7e39">blockSize</link> (byte id)</para>
+
+<para>get the storage space size in bytes reserved for the block. </para>
+</listitem>
+            <listitem><para>word <link linkend="_classstorage_block___c_1ad1486b9a48a2b2c4cb3cf16827cbb7a1">blockStart</link> (byte blockId)</para>
+</listitem>
+            <listitem><para>word <link linkend="_classstorage_block___c_1a2467b7e6f601f96efc42a6c32a023522">blockEnd</link> (byte id)</para>
+
+<para>get block end index. i.e. the address of last byte used by the block. If block size is 0 there isn&apos;t a block end so result will be meaningless. </para>
+</listitem>
+            <listitem><para>byte <link linkend="_classstorage_block___c_1acb749fa733b7000304b57fb659716497">getSlots</link> (byte id)</para>
+</listitem>
+            <listitem><para>byte <link linkend="_classstorage_block___c_1aee7a456279f8d306be97defb37320c35">readByte</link> (byte blockId, byte slot, byte offset)</para>
+</listitem>
+            <listitem><para>bool <link linkend="_classstorage_block___c_1a85ff9c2e220fa0a8e7c1d62f85a3cf39">readSlot</link> (byte blockId, byte slot, void *r)</para>
+
+<para>Read a var from permanent storage eg. EEPROM into a var/struct, copys mem of size = to the slot size given when addBlock was called. </para>
+</listitem>
+            <listitem><para>bool <link linkend="_classstorage_block___c_1abef785fcb0da67f1ca8dbf54cfc6491f">writeByte</link> (byte blockId, byte slot, byte offset, byte value)</para>
+</listitem>
+            <listitem><para>bool <link linkend="_classstorage_block___c_1a7e258c73d18c8939ab2fcab66fcf6a64">writeSlot</link> (byte blockId, byte slot, void *r)</para>
+
+<para>Write a var into permanent storage eg. EEPROM into a var/struct, copys mem of size = to the slot size given when addBlock was called. </para>
+</listitem>
+            <listitem><para>void <link linkend="_classstorage_block___c_1a5689bada4bede0c81ab36fe2f06cc9f0">print</link> (byte id)</para>
+</listitem>
+            <listitem><para>void <link linkend="_classstorage_block___c_1a769366c10cb4f7a77f9098bca7be6256">printMemUsage</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_store_8h_1structstorage_block___t">storageBlock_T</link> * <link linkend="_classstorage_block___c_1a9069a91d9228649e3d3f67b5f40e182a">blocksA</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Private Attributes    </title>
+        <itemizedlist>
+            <listitem><para>uint16_t <link linkend="_classstorage_block___c_1af667e7f1303943fe187acf5615fa0ee2">eeprom_used</link></para>
+</listitem>
+            <listitem><para>byte <link linkend="_classstorage_block___c_1ab6449bda89cd0dab792e60e5ee862939">maxBlocks</link></para>
+</listitem>
+            <listitem><para>byte <link linkend="_classstorage_block___c_1af11fee6180446c962384ebe4c5d8eb11">slotsUsed</link> = 0</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Blocks of storage. eg. 1 block for 1wire chips and another for room data. each of different lengths with differnet ids. </para>
+
+
+
+<para>Each blocks info if stored in a extern array 
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>a</entry><entry>
+<para>a pointer to an extern array used to store the storage info. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>maxBlocks</entry><entry>
+<para>The size of the array. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>startIndex</entry><entry>
+<para>for example with eeprom it could be 15 to stat using the eeprom at address 15; </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="_store_8h_source_1l00038">38</link> of file <link linkend="_store_8h_source">store.h</link>.</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_classstorage_block___c_1a9020da58b3765ed6bd53da41c55b9eb7"/><section>
+    <title>storageBlock_C()</title>
+<indexterm><primary>storageBlock_C</primary><secondary>storageBlock_C</secondary></indexterm>
+<indexterm><primary>storageBlock_C</primary><secondary>storageBlock_C</secondary></indexterm>
+<para><computeroutput>storageBlock_C::storageBlock_C (byte maxBlocks, <link linkend="_store_8h_1structstorage_block___t">storageBlock_T</link> a[], byte startIndex = <computeroutput>0</computeroutput>
+)</computeroutput></para><para>
+Definition at line <link linkend="_store_8cpp_source_1l00017">17</link> of file <link linkend="_store_8cpp_source">store.cpp</link>.</para>
+<programlisting linenumbering="unnumbered">00017 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+00018 &#32;&#32;&#32;&#32;<link linkend="_classstorage_block___c_1a9069a91d9228649e3d3f67b5f40e182a">blocksA</link>&#32;=&#32;a;
+00019 &#32;&#32;&#32;&#32;<link linkend="_classstorage_block___c_1ab6449bda89cd0dab792e60e5ee862939">maxBlocks</link>&#32;=&#32;<link linkend="_classstorage_block___c_1ab6449bda89cd0dab792e60e5ee862939">maxBlocks</link>;
+00020 &#32;&#32;&#32;&#32;<link linkend="_classstorage_block___c_1af667e7f1303943fe187acf5615fa0ee2">eeprom_used</link>&#32;=&#32;startIndex;
+00021 }
+</programlisting><para>
+References <link linkend="_store_8h_source_1l00044">blocksA</link>, <link linkend="_store_8h_source_1l00040">eeprom_used</link>, and <link linkend="_store_8h_source_1l00041">maxBlocks</link>.</para>
+</section>
+<anchor xml:id="_classstorage_block___c_1afe17040108c5d920b01d871585c150f8"/><section>
+    <title>~storageBlock_C()</title>
+<indexterm><primary>~storageBlock_C</primary><secondary>storageBlock_C</secondary></indexterm>
+<indexterm><primary>storageBlock_C</primary><secondary>~storageBlock_C</secondary></indexterm>
+<para><computeroutput>storageBlock_C::~storageBlock_C ( )</computeroutput></para><para>
+Definition at line <link linkend="_store_8cpp_source_1l00022">22</link> of file <link linkend="_store_8cpp_source">store.cpp</link>.</para>
+<programlisting linenumbering="unnumbered">00022 {&#32;}
+</programlisting></section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_classstorage_block___c_1ac9ae09aee8e89280fd15dcae118a7783"/><section>
+    <title>addBlock()</title>
+<indexterm><primary>addBlock</primary><secondary>storageBlock_C</secondary></indexterm>
+<indexterm><primary>storageBlock_C</primary><secondary>addBlock</secondary></indexterm>
+<para><computeroutput>byte storageBlock_C::addBlock (byte slots, byte recSize)</computeroutput></para><para>
+
+<para>Add a storage block. </para>
+</para>
+
+<para>No range checking</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>slots</entry><entry>
+<para>number of slots to add </para>
+</entry>
+                            </row>
+                            <row>
+<entry>recSize</entry><entry>
+<para>size of each block in bytes. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>byte returns the id of the block. </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_store_8cpp_source_1l00090">90</link> of file <link linkend="_store_8cpp_source">store.cpp</link>.</para>
+<programlisting linenumbering="unnumbered">00090 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+00091 &#32;&#32;&#32;&#32;<link linkend="_classstorage_block___c_1a9069a91d9228649e3d3f67b5f40e182a">blocksA</link>[&#32;<link linkend="_classstorage_block___c_1af11fee6180446c962384ebe4c5d8eb11">slotsUsed</link>&#32;].<link linkend="_store_8h_1a140e81ed333b945f2430230e7da23f45">start</link>&#32;=&#32;<link linkend="_classstorage_block___c_1af667e7f1303943fe187acf5615fa0ee2">eeprom_used</link>;
+00092 &#32;&#32;&#32;&#32;<link linkend="_classstorage_block___c_1a9069a91d9228649e3d3f67b5f40e182a">blocksA</link>[&#32;<link linkend="_classstorage_block___c_1af11fee6180446c962384ebe4c5d8eb11">slotsUsed</link>&#32;].<link linkend="_store_8h_1a91392f39b00b69c871dcfbd57095b643">slots</link>&#32;=&#32;slots;
+00093 &#32;&#32;&#32;&#32;<link linkend="_classstorage_block___c_1a9069a91d9228649e3d3f67b5f40e182a">blocksA</link>[&#32;<link linkend="_classstorage_block___c_1af11fee6180446c962384ebe4c5d8eb11">slotsUsed</link>&#32;].<link linkend="_store_8h_1a4c0d47a86eb54a54bdc30f23b0d648fc">size</link>&#32;=&#32;recSize;
+00094 &#32;&#32;&#32;&#32;<link linkend="_classstorage_block___c_1af667e7f1303943fe187acf5615fa0ee2">eeprom_used</link>&#32;+=&#32;slots&#32;*&#32;recSize;
+00095 &#32;&#32;&#32;&#32;<link linkend="_classstorage_block___c_1af11fee6180446c962384ebe4c5d8eb11">slotsUsed</link>++;
+00096 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_classstorage_block___c_1af11fee6180446c962384ebe4c5d8eb11">slotsUsed</link>&#32;-&#32;1;
+00097 };
+</programlisting><para>
+References <link linkend="_store_8h_source_1l00044">blocksA</link>, <link linkend="_store_8h_source_1l00040">eeprom_used</link>, <link linkend="_store_8h_source_1l00027">storageBlock_T::size</link>, <link linkend="_store_8h_source_1l00026">storageBlock_T::slots</link>, <link linkend="_store_8h_source_1l00042">slotsUsed</link>, and <link linkend="_store_8h_source_1l00025">storageBlock_T::start</link>.</para>
+</section>
+<anchor xml:id="_classstorage_block___c_1a2467b7e6f601f96efc42a6c32a023522"/><section>
+    <title>blockEnd()</title>
+<indexterm><primary>blockEnd</primary><secondary>storageBlock_C</secondary></indexterm>
+<indexterm><primary>storageBlock_C</primary><secondary>blockEnd</secondary></indexterm>
+<para><computeroutput>word storageBlock_C::blockEnd (byte id)</computeroutput></para><para>
+
+<para>get block end index. i.e. the address of last byte used by the block. If block size is 0 there isn&apos;t a block end so result will be meaningless. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>id</entry><entry>
+<para>Block id, index into blocksA[] </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>byte </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_store_8cpp_source_1l00041">41</link> of file <link linkend="_store_8cpp_source">store.cpp</link>.</para>
+<programlisting linenumbering="unnumbered">00041 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+00042 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_classstorage_block___c_1a9069a91d9228649e3d3f67b5f40e182a">blocksA</link>[&#32;id&#32;].<link linkend="_store_8h_1a140e81ed333b945f2430230e7da23f45">start</link>&#32;+&#32;<link linkend="_classstorage_block___c_1a9069a91d9228649e3d3f67b5f40e182a">blocksA</link>[&#32;id&#32;].<link linkend="_store_8h_1a91392f39b00b69c871dcfbd57095b643">slots</link>&#32;*&#32;<link linkend="_classstorage_block___c_1a9069a91d9228649e3d3f67b5f40e182a">blocksA</link>[&#32;id&#32;].<link linkend="_store_8h_1a4c0d47a86eb54a54bdc30f23b0d648fc">size</link>&#32;-&#32;1;
+00043 &#32;&#32;&#32;&#32;<emphasis role="comment">//mem&#32;for&#32;block&#32;=&#32;number&#32;of&#32;slots&#32;*&#32;slot&#32;size.&#32;</emphasis>
+00044 &#32;&#32;&#32;&#32;<emphasis role="comment">//mem&#32;used&#32;before&#32;block&#32;=&#32;blocksA[&#32;id&#32;].start&#32;-&#32;1.</emphasis>
+00045 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;so:&#32;i&#32;=&#32;(blocksA[&#32;id&#32;].start&#32;-&#32;1)&#32;+&#32;blocksA[&#32;id&#32;].slots&#32;*&#32;blocksA[&#32;id&#32;].size</emphasis>
+00046 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;but&#32;as&#32;start&#32;could&#32;be&#32;0&#32;so&#32;sub&#32;1&#32;at&#32;end.</emphasis>
+00047 }
+</programlisting><para>
+References <link linkend="_store_8h_source_1l00044">blocksA</link>, <link linkend="_store_8h_source_1l00027">storageBlock_T::size</link>, <link linkend="_store_8h_source_1l00026">storageBlock_T::slots</link>, and <link linkend="_store_8h_source_1l00025">storageBlock_T::start</link>.</para>
+<para>
+Referenced by <link linkend="_store_8h_source_1l00078">blockMem_C::blockEnd()</link>, and <link linkend="_store_8cpp_source_1l00053">print()</link>.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="classstorage_block___c_a2467b7e6f601f96efc42a6c32a023522_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_classstorage_block___c_1ab118a805d45d5b6208fbd31dface7e39"/><section>
+    <title>blockSize()</title>
+<indexterm><primary>blockSize</primary><secondary>storageBlock_C</secondary></indexterm>
+<indexterm><primary>storageBlock_C</primary><secondary>blockSize</secondary></indexterm>
+<para><computeroutput>byte storageBlock_C::blockSize (byte id)</computeroutput></para><para>
+
+<para>get the storage space size in bytes reserved for the block. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>id</entry><entry>
+<para>The block id/array index. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>byte block size in bytes. </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_store_8cpp_source_1l00030">30</link> of file <link linkend="_store_8cpp_source">store.cpp</link>.</para>
+<programlisting linenumbering="unnumbered">00030 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+00031 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_classstorage_block___c_1a9069a91d9228649e3d3f67b5f40e182a">blocksA</link>[&#32;id&#32;].<link linkend="_store_8h_1a91392f39b00b69c871dcfbd57095b643">slots</link>&#32;*&#32;<link linkend="_classstorage_block___c_1a9069a91d9228649e3d3f67b5f40e182a">blocksA</link>[&#32;id&#32;].<link linkend="_store_8h_1a4c0d47a86eb54a54bdc30f23b0d648fc">size</link>;&#32;<emphasis role="comment">//mem&#32;for&#32;block&#32;=&#32;number&#32;of&#32;slots&#32;*&#32;slot&#32;size.</emphasis>
+00032 }
+</programlisting><para>
+References <link linkend="_store_8h_source_1l00044">blocksA</link>, <link linkend="_store_8h_source_1l00027">storageBlock_T::size</link>, and <link linkend="_store_8h_source_1l00026">storageBlock_T::slots</link>.</para>
+<para>
+Referenced by <link linkend="_store_8h_source_1l00083">blockMem_C::blockSize()</link>, and <link linkend="_store_8cpp_source_1l00053">print()</link>.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="classstorage_block___c_ab118a805d45d5b6208fbd31dface7e39_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_classstorage_block___c_1ad1486b9a48a2b2c4cb3cf16827cbb7a1"/><section>
+    <title>blockStart()</title>
+<indexterm><primary>blockStart</primary><secondary>storageBlock_C</secondary></indexterm>
+<indexterm><primary>storageBlock_C</primary><secondary>blockStart</secondary></indexterm>
+<para><computeroutput>word storageBlock_C::blockStart (byte blockId)</computeroutput></para><para>
+Definition at line <link linkend="_store_8cpp_source_1l00099">99</link> of file <link linkend="_store_8cpp_source">store.cpp</link>.</para>
+<programlisting linenumbering="unnumbered">00099 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+00100 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_classstorage_block___c_1a9069a91d9228649e3d3f67b5f40e182a">blocksA</link>[&#32;blockId&#32;].<link linkend="_store_8h_1a140e81ed333b945f2430230e7da23f45">start</link>;
+00101 }
+</programlisting><para>
+References <link linkend="_store_8h_source_1l00044">blocksA</link>, and <link linkend="_store_8h_source_1l00025">storageBlock_T::start</link>.</para>
+<para>
+Referenced by <link linkend="_store_8h_source_1l00077">blockMem_C::blockStart()</link>.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="classstorage_block___c_ad1486b9a48a2b2c4cb3cf16827cbb7a1_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_classstorage_block___c_1acb749fa733b7000304b57fb659716497"/><section>
+    <title>getSlots()</title>
+<indexterm><primary>getSlots</primary><secondary>storageBlock_C</secondary></indexterm>
+<indexterm><primary>storageBlock_C</primary><secondary>getSlots</secondary></indexterm>
+<para><computeroutput>byte storageBlock_C::getSlots (byte id)<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_store_8h_source_1l00058">58</link> of file <link linkend="_store_8h_source">store.h</link>.</para>
+<programlisting linenumbering="unnumbered">00058 {&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_classstorage_block___c_1a9069a91d9228649e3d3f67b5f40e182a">blocksA</link>[id].<link linkend="_store_8h_1a91392f39b00b69c871dcfbd57095b643">slots</link>;&#32;}
+</programlisting><para>
+References <link linkend="_store_8h_source_1l00044">blocksA</link>, and <link linkend="_store_8h_source_1l00026">storageBlock_T::slots</link>.</para>
+<para>
+Referenced by <link linkend="_store_8h_source_1l00090">blockMem_C::getSlots()</link>.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="classstorage_block___c_acb749fa733b7000304b57fb659716497_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_classstorage_block___c_1a0f4aa42b1755c6439528a6a6f72043f8"/><section>
+    <title>leaveFirst()</title>
+<indexterm><primary>leaveFirst</primary><secondary>storageBlock_C</secondary></indexterm>
+<indexterm><primary>storageBlock_C</primary><secondary>leaveFirst</secondary></indexterm>
+<para><computeroutput>void storageBlock_C::leaveFirst (byte i)</computeroutput></para><para>
+Definition at line <link linkend="_store_8cpp_source_1l00049">49</link> of file <link linkend="_store_8cpp_source">store.cpp</link>.</para>
+<programlisting linenumbering="unnumbered">00049 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+00050 &#32;&#32;&#32;&#32;<link linkend="_classstorage_block___c_1af667e7f1303943fe187acf5615fa0ee2">eeprom_used</link>&#32;=&#32;i;
+00051 };
+</programlisting><para>
+References <link linkend="_store_8h_source_1l00040">eeprom_used</link>.</para>
+</section>
+<anchor xml:id="_classstorage_block___c_1a5689bada4bede0c81ab36fe2f06cc9f0"/><section>
+    <title>print()</title>
+<indexterm><primary>print</primary><secondary>storageBlock_C</secondary></indexterm>
+<indexterm><primary>storageBlock_C</primary><secondary>print</secondary></indexterm>
+<para><computeroutput>void storageBlock_C::print (byte id)</computeroutput></para><para>
+Definition at line <link linkend="_store_8cpp_source_1l00053">53</link> of file <link linkend="_store_8cpp_source">store.cpp</link>.</para>
+<programlisting linenumbering="unnumbered">00053 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+00054 &#32;&#32;&#32;&#32;io_print(&#32;<emphasis role="stringliteral">&quot;&#32;storage&#32;id:&#32;&quot;</emphasis>&#32;);&#32;io_print_n(&#32;<emphasis role="keywordtype">id</emphasis>&#32;);
+00055 &#32;&#32;&#32;&#32;io_print(&#32;<emphasis role="stringliteral">&quot;,&#32;start&#32;address:&#32;&quot;</emphasis>&#32;);&#32;io_print_n(&#32;<link linkend="_classstorage_block___c_1a9069a91d9228649e3d3f67b5f40e182a">blocksA</link>[&#32;<emphasis role="keywordtype">id</emphasis>&#32;].start&#32;);
+00056 &#32;&#32;&#32;&#32;io_print(&#32;<emphasis role="stringliteral">&quot;,&#32;end&#32;addr:&#32;&quot;</emphasis>&#32;);&#32;io_print_n(&#32;<link linkend="_classstorage_block___c_1a2467b7e6f601f96efc42a6c32a023522">blockEnd</link>(&#32;<emphasis role="keywordtype">id</emphasis>&#32;)&#32;);
+00057 &#32;&#32;&#32;&#32;io_print(&#32;<emphasis role="stringliteral">&quot;,&#32;bytes&#32;used:&#32;&quot;</emphasis>&#32;);&#32;io_print_n(&#32;<link linkend="_classstorage_block___c_1ab118a805d45d5b6208fbd31dface7e39">blockSize</link>(&#32;<emphasis role="keywordtype">id</emphasis>&#32;)&#32;);
+00058 }
+</programlisting><para>
+References <link linkend="_store_8cpp_source_1l00041">blockEnd()</link>, <link linkend="_store_8h_source_1l00044">blocksA</link>, and <link linkend="_store_8cpp_source_1l00030">blockSize()</link>.</para>
+<para>
+Referenced by <link linkend="_store_8h_source_1l00089">blockMem_C::print()</link>.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="classstorage_block___c_a5689bada4bede0c81ab36fe2f06cc9f0_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="classstorage_block___c_a5689bada4bede0c81ab36fe2f06cc9f0_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_classstorage_block___c_1a769366c10cb4f7a77f9098bca7be6256"/><section>
+    <title>printMemUsage()</title>
+<indexterm><primary>printMemUsage</primary><secondary>storageBlock_C</secondary></indexterm>
+<indexterm><primary>storageBlock_C</primary><secondary>printMemUsage</secondary></indexterm>
+<para><computeroutput>void storageBlock_C::printMemUsage ( )</computeroutput></para><para>
+Definition at line <link linkend="_store_8cpp_source_1l00060">60</link> of file <link linkend="_store_8cpp_source">store.cpp</link>.</para>
+<programlisting linenumbering="unnumbered">00060 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+00061 <emphasis role="preprocessor">#ifdef&#32;ATmega328P</emphasis>
+00062 &#32;&#32;&#32;&#32;io_println(&#32;<emphasis role="stringliteral">&quot;MCU&#32;=&#32;ATmega328P&quot;</emphasis>&#32;);
+00063 <emphasis role="preprocessor">#endif</emphasis>
+00064 &#32;&#32;&#32;&#32;io_println(&#32;<emphasis role="stringliteral">&quot;ATmega328P&#32;has&#32;1kByte&#32;EEPROM,&#32;ATmega1280&#32;and&#32;ATmega2560&#32;4KB&quot;</emphasis>&#32;);
+00065 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;&#32;&#32;&#32;io_println(&#32;&quot;EEPROM&#32;use:&quot;&#32;);</emphasis>
+00066 &#32;&#32;&#32;&#32;io_print(&#32;<emphasis role="stringliteral">&quot;Storage&#32;used:\n\r\tFor&#32;vars:&#32;&quot;</emphasis>&#32;);
+00067 &#32;&#32;&#32;&#32;io_print_n(&#32;<link linkend="_classstorage_block___c_1a9069a91d9228649e3d3f67b5f40e182a">blocksA</link>[&#32;0&#32;].start&#32;);
+00068 &#32;&#32;&#32;&#32;<emphasis role="comment">//io_print(&#32;&quot;bytes,&#32;For&#32;switch&#32;sender&#32;=&#32;&quot;&#32;);</emphasis>
+00069 &#32;&#32;&#32;&#32;<emphasis role="comment">//io_println_n(&#32;resMemForSwitchCon&#32;);</emphasis>
+00070 &#32;&#32;&#32;&#32;io_print(&#32;<emphasis role="stringliteral">&quot;bytes,\n\r\tFor&#32;Blocks:&#32;&quot;</emphasis>&#32;);
+00071 &#32;&#32;&#32;&#32;io_println_n(&#32;<link linkend="_classstorage_block___c_1af667e7f1303943fe187acf5615fa0ee2">eeprom_used</link>&#32;-&#32;<link linkend="_classstorage_block___c_1a9069a91d9228649e3d3f67b5f40e182a">blocksA</link>[&#32;0&#32;].start&#32;);
+00072 &#32;&#32;&#32;&#32;io_print(&#32;<emphasis role="stringliteral">&quot;\tTotal&#32;EEPROM&#32;memory&#32;used&#32;in&#32;bytes&#32;=&#32;&quot;</emphasis>&#32;);
+00073 &#32;&#32;&#32;&#32;io_print_n(&#32;<link linkend="_classstorage_block___c_1af667e7f1303943fe187acf5615fa0ee2">eeprom_used</link>&#32;);
+00074 &#32;&#32;&#32;&#32;io_print(&#32;<emphasis role="stringliteral">&quot;bytes,&#32;EEPROM&#32;memory&#32;left&#32;bytes&#32;=&#32;&quot;</emphasis>&#32;);
+00075 &#32;&#32;&#32;&#32;io_print_n(&#32;(&#32;mem_eeprom&#32;-&#32;(&#32;<link linkend="_classstorage_block___c_1af667e7f1303943fe187acf5615fa0ee2">eeprom_used</link>&#32;)&#32;)&#32;);
+00076 &#32;&#32;&#32;&#32;io_print(&#32;<emphasis role="stringliteral">&quot;bytes,&#32;percentage&#32;left&#32;\u2248&#32;&quot;</emphasis>&#32;);<emphasis role="comment">//using&#32;this&#32;≈&#32;works&#32;to</emphasis>
+00077 &#32;&#32;&#32;&#32;io_print_n(&#32;(&#32;(&#32;mem_eeprom&#32;-&#32;(&#32;<link linkend="_classstorage_block___c_1af667e7f1303943fe187acf5615fa0ee2">eeprom_used</link>&#32;)&#32;)&#32;*&#32;100ul&#32;)&#32;/&#32;mem_eeprom&#32;);&#32;io_println(&#32;<emphasis role="stringliteral">&quot;%&quot;</emphasis>&#32;);
+00078 
+00079 }
+</programlisting><para>
+References <link linkend="_store_8h_source_1l00044">blocksA</link>, and <link linkend="_store_8h_source_1l00040">eeprom_used</link>.</para>
+</section>
+<anchor xml:id="_classstorage_block___c_1aee7a456279f8d306be97defb37320c35"/><section>
+    <title>readByte()</title>
+<indexterm><primary>readByte</primary><secondary>storageBlock_C</secondary></indexterm>
+<indexterm><primary>storageBlock_C</primary><secondary>readByte</secondary></indexterm>
+<para><computeroutput>byte storageBlock_C::readByte (byte blockId, byte slot, byte offset)</computeroutput></para><para>
+Definition at line <link linkend="_store_8cpp_source_1l00103">103</link> of file <link linkend="_store_8cpp_source">store.cpp</link>.</para>
+<programlisting linenumbering="unnumbered">00103 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+00104 &#32;&#32;&#32;&#32;word&#32;i;
+00105 &#32;&#32;&#32;&#32;i&#32;=&#32;<link linkend="_classstorage_block___c_1a9069a91d9228649e3d3f67b5f40e182a">blocksA</link>[&#32;blockId&#32;].<link linkend="_store_8h_1a140e81ed333b945f2430230e7da23f45">start</link>&#32;+&#32;(&#32;slot&#32;*&#32;<link linkend="_classstorage_block___c_1a9069a91d9228649e3d3f67b5f40e182a">blocksA</link>[&#32;blockId&#32;].<link linkend="_store_8h_1a4c0d47a86eb54a54bdc30f23b0d648fc">size</link>&#32;);
+00106 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;EEPROM.read(&#32;i&#32;);
+00107 
+00108 }
+</programlisting><para>
+References <link linkend="_store_8h_source_1l00044">blocksA</link>, <link linkend="_store_8h_source_1l00027">storageBlock_T::size</link>, and <link linkend="_store_8h_source_1l00025">storageBlock_T::start</link>.</para>
+<para>
+Referenced by <link linkend="_store_8h_source_1l00085">blockMem_C::readByte()</link>.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="classstorage_block___c_aee7a456279f8d306be97defb37320c35_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_classstorage_block___c_1a85ff9c2e220fa0a8e7c1d62f85a3cf39"/><section>
+    <title>readSlot()</title>
+<indexterm><primary>readSlot</primary><secondary>storageBlock_C</secondary></indexterm>
+<indexterm><primary>storageBlock_C</primary><secondary>readSlot</secondary></indexterm>
+<para><computeroutput>bool storageBlock_C::readSlot (byte blockId, byte slot, void * r)</computeroutput></para><para>
+
+<para>Read a var from permanent storage eg. EEPROM into a var/struct, copys mem of size = to the slot size given when addBlock was called. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>in</entry><entry>blockId</entry><entry>
+<para>the block of storage, ie. the index to the array </para>
+</entry>
+                            </row>
+                            <row>
+<entry>in</entry><entry>slot</entry><entry>
+<para>The slot to read, mem copy len is = the size of the rec/slot </para>
+</entry>
+                            </row>
+                            <row>
+<entry>out</entry><entry>r</entry><entry>
+<para>pointer to the memory to copy the slot into. As not using templates need to make sure sizeof(var pointed to by r) &gt;= slot size. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>true if no problems </para>
+
+<para>false if slot &gt; num of slots in block. </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_store_8cpp_source_1l00121">121</link> of file <link linkend="_store_8cpp_source">store.cpp</link>.</para>
+<programlisting linenumbering="unnumbered">00121 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+00122 &#32;&#32;&#32;&#32;word&#32;i,&#32;x;
+00123 &#32;&#32;&#32;&#32;<emphasis role="comment">//io_print(&#32;&quot;,&#32;id:&#32;&quot;&#32;);&#32;io_print_n(&#32;blockId&#32;);//&#32;checked&#32;to&#32;=&#32;1&#32;for&#32;1-wire.</emphasis>
+00124 &#32;&#32;&#32;&#32;<emphasis role="comment">//io_print(&#32;&quot;,&#32;slot:&#32;&quot;&#32;);&#32;io_print_n(&#32;slot&#32;);</emphasis>
+00125 &#32;&#32;&#32;&#32;<emphasis role="comment">//io_print(&#32;&quot;,&#32;&amp;blocksA:&quot;&#32;);&#32;io_print_n(&#32;(&#32;word&#32;)&amp;blocksA&#32;);</emphasis>
+00126 &#32;&#32;&#32;&#32;<emphasis role="comment">//io_print(&#32;&quot;,&#32;&amp;this:&quot;&#32;);&#32;io_print_n(&#32;(&#32;word&#32;)this&#32;);</emphasis>
+00127 
+00128 &#32;&#32;&#32;&#32;<emphasis role="comment">//io_print(&#32;&quot;,&#32;.slots:&#32;&quot;&#32;);&#32;io_print_n(&#32;blocksA[&#32;blockId&#32;].slots&#32;);</emphasis>
+00129 &#32;&#32;&#32;&#32;<emphasis role="comment">//io_print(&#32;&quot;,&#32;sizeof(r):&quot;);io_print_n(&#32;sizeof(r)&#32;);</emphasis>
+00130 &#32;&#32;&#32;&#32;<emphasis role="comment">//io_print(&#32;&quot;,&#32;r:&quot;);io_print_n(&#32;(word)r&#32;);</emphasis>
+00131 &#32;&#32;&#32;&#32;<emphasis role="comment">//io_print(&#32;&quot;,&#32;(&#32;byte*&#32;)r:&quot;);&#32;io_print_n(&#32;(word)((&#32;byte*&#32;)r)&#32;);</emphasis>
+00132 
+00133 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(&#32;slot&#32;&gt;&#32;<link linkend="_classstorage_block___c_1a9069a91d9228649e3d3f67b5f40e182a">blocksA</link>[&#32;blockId&#32;].slots&#32;)&#32;{&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="keyword">false</emphasis>;&#32;}
+00134 &#32;&#32;&#32;&#32;i&#32;=&#32;<link linkend="_classstorage_block___c_1a9069a91d9228649e3d3f67b5f40e182a">blocksA</link>[&#32;blockId&#32;].<link linkend="_store_8h_1a140e81ed333b945f2430230e7da23f45">start</link>&#32;+&#32;(&#32;slot&#32;*&#32;<link linkend="_classstorage_block___c_1a9069a91d9228649e3d3f67b5f40e182a">blocksA</link>[&#32;blockId&#32;].<link linkend="_store_8h_1a4c0d47a86eb54a54bdc30f23b0d648fc">size</link>&#32;);
+00135 &#32;&#32;&#32;&#32;<emphasis role="comment">//io_print(&#32;&quot;,&#32;i(EEPROM&#32;addr):&#32;&quot;&#32;);&#32;io_print_n(&#32;i&#32;);</emphasis>
+00136 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">byte</emphasis>*&#32;d&#32;=&#32;(&#32;<emphasis role="keywordtype">byte</emphasis>*&#32;)r;
+00137 &#32;&#32;&#32;&#32;<emphasis role="comment">//io_print(&#32;&quot;,&#32;d:&quot;);io_print_n(&#32;(word)d&#32;);</emphasis>
+00138 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(&#32;x&#32;=&#32;0;&#32;x&#32;&lt;&#32;<link linkend="_classstorage_block___c_1a9069a91d9228649e3d3f67b5f40e182a">blocksA</link>[&#32;blockId&#32;].<link linkend="_store_8h_1a4c0d47a86eb54a54bdc30f23b0d648fc">size</link>;&#32;x++&#32;)&#32;{
+00139 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;d[&#32;x&#32;]&#32;=&#32;EEPROM.read(&#32;i&#32;+&#32;x&#32;);
+00140 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//io_print(&#32;&quot;.&quot;&#32;);</emphasis>
+00141 &#32;&#32;&#32;&#32;}
+00142 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="keyword">true</emphasis>;
+00143 }
+</programlisting><para>
+References <link linkend="_store_8h_source_1l00044">blocksA</link>, <link linkend="_store_8h_source_1l00027">storageBlock_T::size</link>, and <link linkend="_store_8h_source_1l00025">storageBlock_T::start</link>.</para>
+<para>
+Referenced by <link linkend="_store_8cpp_source_1l00183">blockMem_C::readSlot()</link>.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="classstorage_block___c_a85ff9c2e220fa0a8e7c1d62f85a3cf39_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_classstorage_block___c_1abef785fcb0da67f1ca8dbf54cfc6491f"/><section>
+    <title>writeByte()</title>
+<indexterm><primary>writeByte</primary><secondary>storageBlock_C</secondary></indexterm>
+<indexterm><primary>storageBlock_C</primary><secondary>writeByte</secondary></indexterm>
+<para><computeroutput>bool storageBlock_C::writeByte (byte blockId, byte slot, byte offset, byte value)</computeroutput></para><para>
+Definition at line <link linkend="_store_8cpp_source_1l00165">165</link> of file <link linkend="_store_8cpp_source">store.cpp</link>.</para>
+<programlisting linenumbering="unnumbered">00165 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+00166 &#32;&#32;&#32;&#32;&#32;word&#32;i;
+00167 &#32;&#32;&#32;&#32;&#32;i&#32;=&#32;<link linkend="_classstorage_block___c_1a9069a91d9228649e3d3f67b5f40e182a">blocksA</link>[&#32;blockId&#32;].<link linkend="_store_8h_1a140e81ed333b945f2430230e7da23f45">start</link>&#32;+&#32;(&#32;slot&#32;*&#32;<link linkend="_classstorage_block___c_1a9069a91d9228649e3d3f67b5f40e182a">blocksA</link>[&#32;blockId&#32;].<link linkend="_store_8h_1a4c0d47a86eb54a54bdc30f23b0d648fc">size</link>&#32;)&#32;+&#32;offset;
+00168 &#32;&#32;&#32;&#32;&#32;EEPROM.update(&#32;i,&#32;&#32;value);
+00169 &#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="keyword">true</emphasis>;
+00170 }
+</programlisting><para>
+References <link linkend="_store_8h_source_1l00044">blocksA</link>, <link linkend="_store_8h_source_1l00027">storageBlock_T::size</link>, and <link linkend="_store_8h_source_1l00025">storageBlock_T::start</link>.</para>
+<para>
+Referenced by <link linkend="_store_8h_source_1l00087">blockMem_C::writeByte()</link>.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="classstorage_block___c_abef785fcb0da67f1ca8dbf54cfc6491f_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_classstorage_block___c_1a7e258c73d18c8939ab2fcab66fcf6a64"/><section>
+    <title>writeSlot()</title>
+<indexterm><primary>writeSlot</primary><secondary>storageBlock_C</secondary></indexterm>
+<indexterm><primary>storageBlock_C</primary><secondary>writeSlot</secondary></indexterm>
+<para><computeroutput>bool storageBlock_C::writeSlot (byte blockId, byte slot, void * r)</computeroutput></para><para>
+
+<para>Write a var into permanent storage eg. EEPROM into a var/struct, copys mem of size = to the slot size given when addBlock was called. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>in</entry><entry>blockId</entry><entry>
+<para>the block of storage, ie. the index to the array </para>
+</entry>
+                            </row>
+                            <row>
+<entry>in</entry><entry>slot</entry><entry>
+<para>The slot to update, mem copy len is = the size of the rec/slot </para>
+</entry>
+                            </row>
+                            <row>
+<entry>out</entry><entry>r</entry><entry>
+<para>pointer to the memory to copy into the slot. As not using templates need to make sure sizeof(var pointed to by r) &gt;= slot size. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>true if no problems </para>
+
+<para>false if slot &gt; num of slots in block. </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_store_8cpp_source_1l00154">154</link> of file <link linkend="_store_8cpp_source">store.cpp</link>.</para>
+<programlisting linenumbering="unnumbered">00154 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+00155 &#32;&#32;&#32;&#32;word&#32;i,&#32;x;
+00156 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(&#32;slot&#32;&gt;&#32;<link linkend="_classstorage_block___c_1a9069a91d9228649e3d3f67b5f40e182a">blocksA</link>[&#32;blockId&#32;].slots&#32;)&#32;{&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="keyword">false</emphasis>;&#32;}
+00157 &#32;&#32;&#32;&#32;i&#32;=&#32;<link linkend="_classstorage_block___c_1a9069a91d9228649e3d3f67b5f40e182a">blocksA</link>[&#32;blockId&#32;].<link linkend="_store_8h_1a140e81ed333b945f2430230e7da23f45">start</link>&#32;+&#32;(&#32;slot&#32;*&#32;<link linkend="_classstorage_block___c_1a9069a91d9228649e3d3f67b5f40e182a">blocksA</link>[&#32;blockId&#32;].<link linkend="_store_8h_1a4c0d47a86eb54a54bdc30f23b0d648fc">size</link>&#32;);
+00158 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">byte</emphasis>*&#32;d&#32;=&#32;(&#32;<emphasis role="keywordtype">byte</emphasis>*&#32;)r;
+00159 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(&#32;x&#32;=&#32;0;&#32;x&#32;&lt;&#32;<link linkend="_classstorage_block___c_1a9069a91d9228649e3d3f67b5f40e182a">blocksA</link>[&#32;blockId&#32;].<link linkend="_store_8h_1a4c0d47a86eb54a54bdc30f23b0d648fc">size</link>;&#32;x++&#32;)&#32;{
+00160 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;EEPROM.update(&#32;i&#32;+&#32;x,&#32;d[&#32;x&#32;]&#32;);
+00161 &#32;&#32;&#32;&#32;}
+00162 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="keyword">true</emphasis>;
+00163 }
+</programlisting><para>
+References <link linkend="_store_8h_source_1l00044">blocksA</link>, <link linkend="_store_8h_source_1l00027">storageBlock_T::size</link>, and <link linkend="_store_8h_source_1l00025">storageBlock_T::start</link>.</para>
+<para>
+Referenced by <link linkend="_store_8h_source_1l00088">blockMem_C::writeSlot()</link>.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="classstorage_block___c_a7e258c73d18c8939ab2fcab66fcf6a64_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_classstorage_block___c_1a9069a91d9228649e3d3f67b5f40e182a"/><section>
+    <title>blocksA</title>
+<indexterm><primary>blocksA</primary><secondary>storageBlock_C</secondary></indexterm>
+<indexterm><primary>storageBlock_C</primary><secondary>blocksA</secondary></indexterm>
+<para><computeroutput><link linkend="_store_8h_1structstorage_block___t">storageBlock_T</link>* storageBlock_C::blocksA</computeroutput></para><para>
+Definition at line <link linkend="_store_8h_source_1l00044">44</link> of file <link linkend="_store_8h_source">store.h</link>.</para>
+<para>
+Referenced by <link linkend="_store_8cpp_source_1l00090">addBlock()</link>, <link linkend="_store_8cpp_source_1l00041">blockEnd()</link>, <link linkend="_store_8cpp_source_1l00030">blockSize()</link>, <link linkend="_store_8cpp_source_1l00099">blockStart()</link>, <link linkend="_store_8h_source_1l00058">getSlots()</link>, <link linkend="_store_8cpp_source_1l00053">print()</link>, <link linkend="_store_8cpp_source_1l00060">printMemUsage()</link>, <link linkend="_store_8cpp_source_1l00103">readByte()</link>, <link linkend="_store_8cpp_source_1l00121">readSlot()</link>, <link linkend="_store_8h_source_1l00084">blockMem_C::slotSize()</link>, <link linkend="_store_8cpp_source_1l00017">storageBlock_C()</link>, <link linkend="_store_8cpp_source_1l00165">writeByte()</link>, and <link linkend="_store_8cpp_source_1l00154">writeSlot()</link>.</para>
+</section>
+<anchor xml:id="_classstorage_block___c_1af667e7f1303943fe187acf5615fa0ee2"/><section>
+    <title>eeprom_used</title>
+<indexterm><primary>eeprom_used</primary><secondary>storageBlock_C</secondary></indexterm>
+<indexterm><primary>storageBlock_C</primary><secondary>eeprom_used</secondary></indexterm>
+<para><computeroutput>uint16_t storageBlock_C::eeprom_used<computeroutput>[private]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_store_8h_source_1l00040">40</link> of file <link linkend="_store_8h_source">store.h</link>.</para>
+<para>
+Referenced by <link linkend="_store_8cpp_source_1l00090">addBlock()</link>, <link linkend="_store_8cpp_source_1l00049">leaveFirst()</link>, <link linkend="_store_8cpp_source_1l00060">printMemUsage()</link>, and <link linkend="_store_8cpp_source_1l00017">storageBlock_C()</link>.</para>
+</section>
+<anchor xml:id="_classstorage_block___c_1ab6449bda89cd0dab792e60e5ee862939"/><section>
+    <title>maxBlocks</title>
+<indexterm><primary>maxBlocks</primary><secondary>storageBlock_C</secondary></indexterm>
+<indexterm><primary>storageBlock_C</primary><secondary>maxBlocks</secondary></indexterm>
+<para><computeroutput>byte storageBlock_C::maxBlocks<computeroutput>[private]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_store_8h_source_1l00041">41</link> of file <link linkend="_store_8h_source">store.h</link>.</para>
+<para>
+Referenced by <link linkend="_store_8cpp_source_1l00017">storageBlock_C()</link>.</para>
+</section>
+<anchor xml:id="_classstorage_block___c_1af11fee6180446c962384ebe4c5d8eb11"/><section>
+    <title>slotsUsed</title>
+<indexterm><primary>slotsUsed</primary><secondary>storageBlock_C</secondary></indexterm>
+<indexterm><primary>storageBlock_C</primary><secondary>slotsUsed</secondary></indexterm>
+<para><computeroutput>byte storageBlock_C::slotsUsed = 0<computeroutput>[private]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_store_8h_source_1l00042">42</link> of file <link linkend="_store_8h_source">store.h</link>.</para>
+<para>
+Referenced by <link linkend="_store_8cpp_source_1l00090">addBlock()</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following files:</para>
+src/<link linkend="_store_8h">store.h</link>src/<link linkend="_store_8cpp">store.cpp</link></section>
+</section>

@@ -1,0 +1,141 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_store_8h" xml:lang="en-US">
+<title>src/store.h File Reference</title>
+<indexterm><primary>src/store.h</primary></indexterm>
+<para>
+
+<para>To help with very simple data saving between MCU resets. For now only using inbuilt EEPROM. </para>
+ 
+</para>
+<programlisting linenumbering="unnumbered">#include &lt;Arduino.h&gt;
+</programlisting>Include dependency graph for store.h:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="store_8h__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+This graph shows which files directly or indirectly include this file:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="store_8h__dep__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>struct <link linkend="_store_8h_1structstorage_block___t">storageBlock_T</link></para>
+
+<para>Storage block TYPE info. </para>
+</listitem>
+            <listitem><para>class <link linkend="_classstorage_block___c">storageBlock_C</link></para>
+
+<para>Blocks of storage. eg. 1 block for 1wire chips and another for room data. each of different lengths with differnet ids. </para>
+</listitem>
+            <listitem><para>class <link linkend="_classblock_mem___c">blockMem_C</link></para>
+
+<para>Wrapper for <link linkend="_classstorage_block___c">storageBlock_C</link> but working with only 1 block id(eg all the 1wire chips saved info). </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Macros    </title>
+        <itemizedlist>
+            <listitem><para>#define <link linkend="_store_8h_1a0eee8221fc0e018111a612d1c2a28523">sBlocks</link>(S)   static <link linkend="_store_8h_1structstorage_block___t">storageBlock_T</link> storageBlocksA[S]; maxStorageBlocks = S;</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>To help with very simple data saving between MCU resets. For now only using inbuilt EEPROM. </para>
+
+<para>To help with very simple data saving betwean MCU resets. For now only using inbuilt EEPROM.</para>
+
+<para><formalpara><title>Author</title>
+
+<para>Joseph (<link xlink:href="mailto:you@domain.com">you@domain.com</link>) </para>
+</formalpara>
+<formalpara><title>Version</title>
+
+<para>0.0.1 </para>
+</formalpara>
+<formalpara><title>Date</title>
+
+<para>2021-12-28</para>
+</formalpara>
+<formalpara><title>Copyright</title>
+
+<para>Copyright (c) 2021</para>
+</formalpara>
+<formalpara><title>Author</title>
+
+<para>Joseph (<link xlink:href="mailto:you@domain.com">you@domain.com</link>) </para>
+</formalpara>
+<formalpara><title>Version</title>
+
+<para>0.0.1 </para>
+</formalpara>
+<formalpara><title>Date</title>
+
+<para>2021-12-28</para>
+</formalpara>
+<formalpara><title>Copyright</title>
+
+<para>Copyright (c) 2021</para>
+</formalpara>
+At least for now: 1: a function to call to request a block of storage. 2: This unit should keep track of how much space is used and start index of each block. </para>
+<para>
+Definition in file <link linkend="_store_8h_source">store.h</link>.</para>
+</section>
+<section>
+<title>Class Documentation</title>
+<indexterm><primary>storageBlock_T</primary></indexterm>
+<section>
+<title>struct storageBlock_T</title>
+
+<para>Storage block TYPE info. </para>
+<para>
+Definition at line <link linkend="_store_8h_source_1l00024">24</link> of file <link linkend="_store_8h_source">store.h</link>.</para>
+Collaboration diagram for storageBlock_T:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="structstorage_block___t__coll__graph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<table frame="all">
+<title>Class Members</title>
+    <tgroup cols="3" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+      <colspec colname='c3'/>
+<tbody>
+<row><entry><anchor xml:id="_store_8h_1a4c0d47a86eb54a54bdc30f23b0d648fc"/>byte</entry><entry>size</entry><entry>
+<para>sizeof the record in bytes. </para>
+</entry></row>
+<row><entry><anchor xml:id="_store_8h_1a91392f39b00b69c871dcfbd57095b643"/>byte</entry><entry>slots</entry><entry></entry></row>
+<row><entry><anchor xml:id="_store_8h_1a140e81ed333b945f2430230e7da23f45"/>word</entry><entry>start</entry><entry></entry></row>
+    </tbody>
+    </tgroup>
+</table>
+</section>
+<section>
+<title>Macro Definition Documentation</title>
+<anchor xml:id="_store_8h_1a0eee8221fc0e018111a612d1c2a28523"/><section>
+    <title>sBlocks</title>
+<indexterm><primary>sBlocks</primary><secondary>store.h</secondary></indexterm>
+<indexterm><primary>store.h</primary><secondary>sBlocks</secondary></indexterm>
+<para><computeroutput>#define sBlocks( S)   static <link linkend="_store_8h_1structstorage_block___t">storageBlock_T</link> storageBlocksA[S]; maxStorageBlocks = S;</computeroutput></para><para>
+Definition at line <link linkend="_store_8h_source_1l00096">96</link> of file <link linkend="_store_8h_source">store.h</link>.</para>
+</section>
+</section>
+</section>
+</section>
