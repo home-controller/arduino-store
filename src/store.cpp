@@ -2,7 +2,7 @@
  * @file store.h
  * @author Joseph (you@domain.com)
  * @brief To help with very simple data saving between MCU resets. For now only using inbuilt EEPROM
- * @version 0.0.1
+ * @version v0.0.2
  * @date 2021-12-28
  *
  * @copyright Copyright (c) 2021
@@ -14,10 +14,17 @@
 #include "/home/jmnc2/doc/src/Arduino/libraries/defs/src/defs.h"
 
 
+/**
+ * @brief Construct a new storageBlock class object
+ * 
+ * @param maxBlocks size of the array a[] in elements(not bytes).
+ * @param a Pointer to an array to store the storage block info in.
+ * @param startIndex index to start using the storage media at. eg. with eeprom, use 15 to skip the first 15 bytes of memory.
+ */
 storageBlock_C::storageBlock_C( byte maxBlocks, storageBlock_T a[ ], byte startIndex ) {
     blocksA = a;
     maxBlocks = maxBlocks;
-    eeprom_used = startIndex;
+    nextStartAddr = startIndex;
 }
 storageBlock_C::~storageBlock_C() { }
 
@@ -46,10 +53,20 @@ word storageBlock_C::blockEnd( byte id ) {
     // but as start could be 0 so sub 1 at end.
 }
 
+/**
+ * @brief Set the address to start using storage at.
+ * 
+ * @param i The storage index/ memory address.
+ */
 void storageBlock_C::leaveFirst( byte i ) {
-    eeprom_used = i;
+    nextStartAddr = i;// for eeprom the first address is 0 is if i = 15 there would be 15 unused(well by this) bytes.
 };
 
+/**
+ * @brief print info about the storage block to the serial.
+ * 
+ * @param id the id(array index) of the block to print the info about.
+ */
 void storageBlock_C::print( byte id ) {
     io_print( " storage id: " ); io_print_n( id );
     io_print( ", start address: " ); io_print_n( blocksA[ id ].start );
@@ -57,7 +74,7 @@ void storageBlock_C::print( byte id ) {
     io_print( ", bytes used: " ); io_print_n( blockSize( id ) );
 }
 
-void storageBlock_C::printMemUsage() {
+void storageBlock_C::printMemUsage() {/// Print storage mem usage.
 #ifdef ATmega328P
     io_println( "MCU = ATmega328P" );
 #endif
@@ -68,13 +85,13 @@ void storageBlock_C::printMemUsage() {
     //io_print( "bytes, For switch sender = " );
     //io_println_n( resMemForSwitchCon );
     io_print( "bytes,\n\r\tFor Blocks: " );
-    io_println_n( eeprom_used - blocksA[ 0 ].start );
+    io_println_n( nextStartAddr - blocksA[ 0 ].start );
     io_print( "\tTotal EEPROM memory used in bytes = " );
-    io_print_n( eeprom_used );
+    io_print_n( nextStartAddr );
     io_print( "bytes, EEPROM memory left bytes = " );
-    io_print_n( ( mem_eeprom - ( eeprom_used ) ) );
+    io_print_n( ( mem_eeprom - ( nextStartAddr ) ) );
     io_print( "bytes, percentage left \u2248 " );//using this ≈ works to
-    io_print_n( ( ( mem_eeprom - ( eeprom_used ) ) * 100ul ) / mem_eeprom ); io_println( "%" );
+    io_print_n( ( ( mem_eeprom - ( nextStartAddr ) ) * 100ul ) / mem_eeprom ); io_println( "%" );
 
 }
 
@@ -88,18 +105,32 @@ void storageBlock_C::printMemUsage() {
  * @return byte returns the id of the block.
  */
 byte storageBlock_C::addBlock( byte slots, byte recSize ) {
-    blocksA[ slotsUsed ].start = eeprom_used;
+    blocksA[ slotsUsed ].start = nextStartAddr;
     blocksA[ slotsUsed ].slots = slots;
     blocksA[ slotsUsed ].size = recSize;
-    eeprom_used += slots * recSize;
+    nextStartAddr += slots * recSize;
     slotsUsed++;
     return slotsUsed - 1;
 };
 
+/**
+ * @brief Get the storage block start address.
+ * 
+ * @param blockId Block id/array index
+ * @return word 
+ */
 word storageBlock_C::blockStart( byte blockId ) {
     return blocksA[ blockId ].start;
 }
 
+/**
+ * @brief Read a byte of data from a storage block slot.
+ * 
+ * @param blockId the index the into the array holding the block info ie. (blocksA[blockId]).
+ * @param slot The slot number.
+ * @param offset The byte to read withing the slot starting at 0 for the first.
+ * @return byte 
+ */
 byte storageBlock_C::readByte( byte blockId, byte slot, byte offset ) {
     word i;
     i = blocksA[ blockId ].start + ( slot * blocksA[ blockId ].size );
@@ -169,7 +200,9 @@ bool storageBlock_C::writeByte( byte blockId, byte slot, byte offset, byte value
      return true;
 }
 
-//+++++++++++++++++++++++++++++++++++++++++++++++++++ class blockMem_C+++++++===================
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++ class blockMem_C+++++++===================
+| more or less just a wrapper for 1 block of the multiple blocks of data stored in storageBlock_C
+*========================================================================================*/
 
 /**
  * @brief Read a slot of data from storage. e.g. eeprom, flash, SDcard(only eeprom for now)

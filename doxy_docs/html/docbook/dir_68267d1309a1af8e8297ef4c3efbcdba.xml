@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_68267d1309a1af8e8297ef4c3efbcdba" xml:lang="en-US">
+<title>src Directory Reference</title>
+<indexterm><primary>src Directory Reference</primary></indexterm>
+<simplesect>
+    <title>Files    </title>
+        <itemizedlist>
+            <listitem><para>file <link linkend="_store_8cpp">store.cpp</link></para>
+</listitem>
+            <listitem><para>file <link linkend="_store_8h">store.h</link></para>
+
+<para>To help with very simple data saving between MCU resets. For now only using inbuilt EEPROM. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

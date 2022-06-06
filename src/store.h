@@ -1,11 +1,11 @@
 /**
  * @file store.h
  * @author Joseph (you@domain.com)
- * @brief To help with very simple data saving betwean MCU resets. For now only using inbuilt EEPROM
- * @version 0.0.1
+ * @brief To help with very simple data saving between MCU resets. For now only using inbuilt EEPROM
+ * @version v0.0.2
  * @date 2021-12-28
  *
- * @copyright Copyright (c) 2021
+ * @copyright Copyright (c) 2022
  *
  * At least for now:
  * 1: a function to call to request a block of storage.
@@ -22,26 +22,26 @@
   *
   */
 typedef struct {
-    word start;  // EEprom start index
-    byte slots;  //< Number of records to save space for in EEPROM for
-    byte size;   ///< sizeof the record in bytes.
+    word start;  /// EEprom start index.
+    byte slots;  //!< Number of records to save space for in EEPROM for.
+    byte size;   ///< sizeof each storage slot in bytes.
 }storageBlock_T;
 
 /**
  * @brief Blocks of storage. eg. 1 block for 1wire chips and another for room data. each of different lengths
- * with differnet ids.
- *  @details Each blocks info if stored in a extern array
- * @param a a pointer to an extern array used to store the storage info.
+ * with different ids.
+ * @details Each blocks info if stored in a extern array.
  * @param maxBlocks The size of the array.
+ * @param a a pointer to an extern array used to store the storage info.
  * @param startIndex for example with eeprom it could be 15 to stat using the eeprom at address 15;
  */
 class storageBlock_C {
 private:
-    uint16_t eeprom_used;
-    byte maxBlocks;
-    byte slotsUsed = 0;
+    uint16_t nextStartAddr;     /// The address/index to start at for any new block.
+    byte maxBlocks;         /// The max No. Blocks. The number of array elements in the array used to store the block info in (blocksA).
+    byte slotsUsed = 0;     /// No. of elements of blocksA[] used.
 public:
-    storageBlock_T* blocksA;
+    storageBlock_T* blocksA;    /// Pointer to an array used to store each slots details in.
 
     //setup
     storageBlock_C(byte maxBlocks, storageBlock_T a[ ], byte startIndex = 0);
