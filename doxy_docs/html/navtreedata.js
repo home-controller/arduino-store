@@ -25,6 +25,9 @@
 var NAVTREE =
 [
   [ "arduino store", "index.html", [
+    [ "Main Page for arduino storage", "index.html", [
+      [ "For storing setup etc. vars to more permanent storage like eeprom, flash etc.", "index.html#autotoc_md0", null ]
+    ] ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],

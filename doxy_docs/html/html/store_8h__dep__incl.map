@@ -1,4 +1,0 @@
-<map id="src/store.h" name="src/store.h">
-<area shape="rect" id="node1" title="To help with very simple data saving between MCU resets. For now only using inbuilt EEPROM." alt="" coords="13,5,103,32"/>
-<area shape="rect" id="node2" href="$store_8cpp.html" title=" " alt="" coords="5,80,111,107"/>
-</map>

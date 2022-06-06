@@ -1,8 +1,0 @@
-<map id="src/store.cpp" name="src/store.cpp">
-<area shape="rect" id="node1" title=" " alt="" coords="243,5,348,32"/>
-<area shape="rect" id="node2" href="$store_8h.html" title="To help with very simple data saving between MCU resets. For now only using inbuilt EEPROM." alt="" coords="14,102,81,129"/>
-<area shape="rect" id="node4" title=" " alt="" coords="105,80,321,151"/>
-<area shape="rect" id="node5" title=" " alt="" coords="345,102,411,129"/>
-<area shape="rect" id="node6" title=" " alt="" coords="435,87,601,143"/>
-<area shape="rect" id="node3" title=" " alt="" coords="5,199,89,225"/>
-</map>

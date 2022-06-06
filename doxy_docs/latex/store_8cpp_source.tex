@@ -1,0 +1,137 @@
+\doxysection{store.\+cpp}
+\label{store_8cpp_source}\index{src/store.cpp@{src/store.cpp}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 }
+\DoxyCodeLine{00011 \textcolor{preprocessor}{\#include "{}store.h"{}}}
+\DoxyCodeLine{00012 \textcolor{preprocessor}{\#include "{}/home/jmnc2/.platformio/packages/framework-\/arduino-\/avr/libraries/EEPROM/src/EEPROM.h"{}}}
+\DoxyCodeLine{00013 \textcolor{preprocessor}{\#include <ui\_io.h>}}
+\DoxyCodeLine{00014 \textcolor{preprocessor}{\#include "{}/home/jmnc2/doc/src/Arduino/libraries/defs/src/defs.h"{}}}
+\DoxyCodeLine{00015 }
+\DoxyCodeLine{00016 }
+\DoxyCodeLine{00024 storageBlock\_C::storageBlock\_C( \textcolor{keywordtype}{byte} maxBlocks, storageBlock\_T a[ ], \textcolor{keywordtype}{byte} startIndex ) \{}
+\DoxyCodeLine{00025     blocksA = a;}
+\DoxyCodeLine{00026     maxBlocks = maxBlocks;}
+\DoxyCodeLine{00027     nextStartAddr = startIndex;}
+\DoxyCodeLine{00028 \}}
+\DoxyCodeLine{00029 storageBlock\_C::\string~storageBlock\_C() \{ \}}
+\DoxyCodeLine{00030 }
+\DoxyCodeLine{00037 \textcolor{keywordtype}{byte} storageBlock\_C::blockSize( \textcolor{keywordtype}{byte} \textcolor{keywordtype}{id} ) \{}
+\DoxyCodeLine{00038     \textcolor{keywordflow}{return} blocksA[ id ].slots * blocksA[ id ].size; \textcolor{comment}{//mem for block = number of slots * slot size.}}
+\DoxyCodeLine{00039 \}}
+\DoxyCodeLine{00040 }
+\DoxyCodeLine{00048 word storageBlock\_C::blockEnd( \textcolor{keywordtype}{byte} \textcolor{keywordtype}{id} ) \{}
+\DoxyCodeLine{00049     \textcolor{keywordflow}{return} blocksA[ id ].start + blocksA[ id ].slots * blocksA[ id ].size -\/ 1;}
+\DoxyCodeLine{00050     \textcolor{comment}{//mem for block = number of slots * slot size. }}
+\DoxyCodeLine{00051     \textcolor{comment}{//mem used before block = blocksA[ id ].start -\/ 1.}}
+\DoxyCodeLine{00052     \textcolor{comment}{// so: i = (blocksA[ id ].start -\/ 1) + blocksA[ id ].slots * blocksA[ id ].size}}
+\DoxyCodeLine{00053     \textcolor{comment}{// but as start could be 0 so sub 1 at end.}}
+\DoxyCodeLine{00054 \}}
+\DoxyCodeLine{00055 }
+\DoxyCodeLine{00061 \textcolor{keywordtype}{void} storageBlock\_C::leaveFirst( \textcolor{keywordtype}{byte} i ) \{}
+\DoxyCodeLine{00062     nextStartAddr = i;\textcolor{comment}{// for eeprom the first address is 0 is if i = 15 there would be 15 unused(well by this) bytes.}}
+\DoxyCodeLine{00063 \};}
+\DoxyCodeLine{00064 }
+\DoxyCodeLine{00070 \textcolor{keywordtype}{void} storageBlock\_C::print( \textcolor{keywordtype}{byte} \textcolor{keywordtype}{id} ) \{}
+\DoxyCodeLine{00071     io\_print( \textcolor{stringliteral}{"{} storage id: "{}} ); io\_print\_n( \textcolor{keywordtype}{id} );}
+\DoxyCodeLine{00072     io\_print( \textcolor{stringliteral}{"{}, start address: "{}} ); io\_print\_n( blocksA[ \textcolor{keywordtype}{id} ].start );}
+\DoxyCodeLine{00073     io\_print( \textcolor{stringliteral}{"{}, end addr: "{}} ); io\_print\_n( blockEnd( \textcolor{keywordtype}{id} ) );}
+\DoxyCodeLine{00074     io\_print( \textcolor{stringliteral}{"{}, bytes used: "{}} ); io\_print\_n( blockSize( \textcolor{keywordtype}{id} ) );}
+\DoxyCodeLine{00075 \}}
+\DoxyCodeLine{00076 }
+\DoxyCodeLine{00077 \textcolor{keywordtype}{void} storageBlock\_C::printMemUsage() \{}
+\DoxyCodeLine{00078 \textcolor{preprocessor}{\#ifdef ATmega328P}}
+\DoxyCodeLine{00079     io\_println( \textcolor{stringliteral}{"{}MCU = ATmega328P"{}} );}
+\DoxyCodeLine{00080 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00081     io\_println( \textcolor{stringliteral}{"{}ATmega328P has 1kByte EEPROM, ATmega1280 and ATmega2560 4KB"{}} );}
+\DoxyCodeLine{00082     \textcolor{comment}{//    io\_println( "{}EEPROM use:"{} );}}
+\DoxyCodeLine{00083     io\_print( \textcolor{stringliteral}{"{}Storage used:\(\backslash\)n\(\backslash\)r\(\backslash\)tFor vars: "{}} );}
+\DoxyCodeLine{00084     io\_print\_n( blocksA[ 0 ].start );}
+\DoxyCodeLine{00085     \textcolor{comment}{//io\_print( "{}bytes, For switch sender = "{} );}}
+\DoxyCodeLine{00086     \textcolor{comment}{//io\_println\_n( resMemForSwitchCon );}}
+\DoxyCodeLine{00087     io\_print( \textcolor{stringliteral}{"{}bytes,\(\backslash\)n\(\backslash\)r\(\backslash\)tFor Blocks: "{}} );}
+\DoxyCodeLine{00088     io\_println\_n( nextStartAddr -\/ blocksA[ 0 ].start );}
+\DoxyCodeLine{00089     io\_print( \textcolor{stringliteral}{"{}\(\backslash\)tTotal EEPROM memory used in bytes = "{}} );}
+\DoxyCodeLine{00090     io\_print\_n( nextStartAddr );}
+\DoxyCodeLine{00091     io\_print( \textcolor{stringliteral}{"{}bytes, EEPROM memory left bytes = "{}} );}
+\DoxyCodeLine{00092     io\_print\_n( ( mem\_eeprom -\/ ( nextStartAddr ) ) );}
+\DoxyCodeLine{00093     io\_print( \textcolor{stringliteral}{"{}bytes, percentage left \(\backslash\)u2248 "{}} );\textcolor{comment}{//using this ≈ works to}}
+\DoxyCodeLine{00094     io\_print\_n( ( ( mem\_eeprom -\/ ( nextStartAddr ) ) * 100ul ) / mem\_eeprom ); io\_println( \textcolor{stringliteral}{"{}\%"{}} );}
+\DoxyCodeLine{00095 }
+\DoxyCodeLine{00096 \}}
+\DoxyCodeLine{00097 }
+\DoxyCodeLine{00107 \textcolor{keywordtype}{byte} storageBlock\_C::addBlock( \textcolor{keywordtype}{byte} slots, \textcolor{keywordtype}{byte} recSize ) \{}
+\DoxyCodeLine{00108     blocksA[ slotsUsed ].start = nextStartAddr;}
+\DoxyCodeLine{00109     blocksA[ slotsUsed ].slots = slots;}
+\DoxyCodeLine{00110     blocksA[ slotsUsed ].size = recSize;}
+\DoxyCodeLine{00111     nextStartAddr += slots * recSize;}
+\DoxyCodeLine{00112     slotsUsed++;}
+\DoxyCodeLine{00113     \textcolor{keywordflow}{return} slotsUsed -\/ 1;}
+\DoxyCodeLine{00114 \};}
+\DoxyCodeLine{00115 }
+\DoxyCodeLine{00122 word storageBlock\_C::blockStart( \textcolor{keywordtype}{byte} blockId ) \{}
+\DoxyCodeLine{00123     \textcolor{keywordflow}{return} blocksA[ blockId ].start;}
+\DoxyCodeLine{00124 \}}
+\DoxyCodeLine{00125 }
+\DoxyCodeLine{00134 \textcolor{keywordtype}{byte} storageBlock\_C::readByte( \textcolor{keywordtype}{byte} blockId, \textcolor{keywordtype}{byte} slot, \textcolor{keywordtype}{byte} offset ) \{}
+\DoxyCodeLine{00135     word i;}
+\DoxyCodeLine{00136     i = blocksA[ blockId ].start + ( slot * blocksA[ blockId ].size );}
+\DoxyCodeLine{00137     \textcolor{keywordflow}{return} EEPROM.read( i );}
+\DoxyCodeLine{00138 }
+\DoxyCodeLine{00139 \}}
+\DoxyCodeLine{00140 }
+\DoxyCodeLine{00141 \textcolor{comment}{// void *memcpy(void *dst, const void *src, size\_t len)}}
+\DoxyCodeLine{00142 }
+\DoxyCodeLine{00152 \textcolor{keywordtype}{bool} storageBlock\_C::readSlot( \textcolor{keywordtype}{byte} blockId, \textcolor{keywordtype}{byte} slot, \textcolor{keywordtype}{void}* r ) \{}
+\DoxyCodeLine{00153     word i, x;}
+\DoxyCodeLine{00154     \textcolor{comment}{//io\_print( "{}, id: "{} ); io\_print\_n( blockId );// checked to = 1 for 1-\/wire.}}
+\DoxyCodeLine{00155     \textcolor{comment}{//io\_print( "{}, slot: "{} ); io\_print\_n( slot );}}
+\DoxyCodeLine{00156     \textcolor{comment}{//io\_print( "{}, \&blocksA:"{} ); io\_print\_n( ( word )\&blocksA );}}
+\DoxyCodeLine{00157     \textcolor{comment}{//io\_print( "{}, \&this:"{} ); io\_print\_n( ( word )this );}}
+\DoxyCodeLine{00158 }
+\DoxyCodeLine{00159     \textcolor{comment}{//io\_print( "{}, .slots: "{} ); io\_print\_n( blocksA[ blockId ].slots );}}
+\DoxyCodeLine{00160     \textcolor{comment}{//io\_print( "{}, sizeof(r):"{});io\_print\_n( sizeof(r) );}}
+\DoxyCodeLine{00161     \textcolor{comment}{//io\_print( "{}, r:"{});io\_print\_n( (word)r );}}
+\DoxyCodeLine{00162     \textcolor{comment}{//io\_print( "{}, ( byte* )r:"{}); io\_print\_n( (word)(( byte* )r) );}}
+\DoxyCodeLine{00163 }
+\DoxyCodeLine{00164     \textcolor{keywordflow}{if} ( slot > blocksA[ blockId ].slots ) \{ \textcolor{keywordflow}{return} \textcolor{keyword}{false}; \}}
+\DoxyCodeLine{00165     i = blocksA[ blockId ].start + ( slot * blocksA[ blockId ].size );}
+\DoxyCodeLine{00166     \textcolor{comment}{//io\_print( "{}, i(EEPROM addr): "{} ); io\_print\_n( i );}}
+\DoxyCodeLine{00167     \textcolor{keywordtype}{byte}* d = ( \textcolor{keywordtype}{byte}* )r;}
+\DoxyCodeLine{00168     \textcolor{comment}{//io\_print( "{}, d:"{});io\_print\_n( (word)d );}}
+\DoxyCodeLine{00169     \textcolor{keywordflow}{for} ( x = 0; x < blocksA[ blockId ].size; x++ ) \{}
+\DoxyCodeLine{00170         d[ x ] = EEPROM.read( i + x );}
+\DoxyCodeLine{00171         \textcolor{comment}{//io\_print( "{}."{} );}}
+\DoxyCodeLine{00172     \}}
+\DoxyCodeLine{00173     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{00174 \}}
+\DoxyCodeLine{00175 }
+\DoxyCodeLine{00185 \textcolor{keywordtype}{bool} storageBlock\_C::writeSlot( \textcolor{keywordtype}{byte} blockId, \textcolor{keywordtype}{byte} slot, \textcolor{keywordtype}{void}* r ) \{}
+\DoxyCodeLine{00186     word i, x;}
+\DoxyCodeLine{00187     \textcolor{keywordflow}{if} ( slot > blocksA[ blockId ].slots ) \{ \textcolor{keywordflow}{return} \textcolor{keyword}{false}; \}}
+\DoxyCodeLine{00188     i = blocksA[ blockId ].start + ( slot * blocksA[ blockId ].size );}
+\DoxyCodeLine{00189     \textcolor{keywordtype}{byte}* d = ( \textcolor{keywordtype}{byte}* )r;}
+\DoxyCodeLine{00190     \textcolor{keywordflow}{for} ( x = 0; x < blocksA[ blockId ].size; x++ ) \{}
+\DoxyCodeLine{00191         EEPROM.update( i + x, d[ x ] );}
+\DoxyCodeLine{00192     \}}
+\DoxyCodeLine{00193     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{00194 \}}
+\DoxyCodeLine{00195 }
+\DoxyCodeLine{00196 \textcolor{keywordtype}{bool} storageBlock\_C::writeByte( \textcolor{keywordtype}{byte} blockId, \textcolor{keywordtype}{byte} slot, \textcolor{keywordtype}{byte} offset, \textcolor{keywordtype}{byte} value )\{}
+\DoxyCodeLine{00197      word i;}
+\DoxyCodeLine{00198      i = blocksA[ blockId ].start + ( slot * blocksA[ blockId ].size ) + offset;}
+\DoxyCodeLine{00199      EEPROM.update( i,  value);}
+\DoxyCodeLine{00200      \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{00201 \}}
+\DoxyCodeLine{00202 }
+\DoxyCodeLine{00203 \textcolor{comment}{/*+++++++++++++++++++++++++++++++++++++++++++++++++++ class blockMem\_C+++++++===================}}
+\DoxyCodeLine{00204 \textcolor{comment}{| more or less just a wrapper for 1 block of the multiple blocks of data stored in storageBlock\_C}}
+\DoxyCodeLine{00205 \textcolor{comment}{*========================================================================================*/}}
+\DoxyCodeLine{00206 }
+\DoxyCodeLine{00216 \textcolor{keywordtype}{bool} blockMem\_C::readSlot( \textcolor{keywordtype}{byte} slot, \textcolor{keywordtype}{void}* r ) \{}
+\DoxyCodeLine{00217     \textcolor{comment}{//io\_print( "{}, sizeof(memManager):"{} ); io\_print\_n( sizeof( memManager ) );}}
+\DoxyCodeLine{00218     \textcolor{comment}{//io\_print( "{}, memManager:"{} ); io\_print\_n( ( word )( \&( *memManager ) ) );}}
+\DoxyCodeLine{00219     \textcolor{keywordflow}{return} memManager-\/>readSlot( \textcolor{keywordtype}{id}, slot, r );}
+\DoxyCodeLine{00220 \}}
+
+\end{DoxyCode}

@@ -1,0 +1,124 @@
+\doxysection{src/store.h File Reference}
+\label{store_8h}\index{src/store.h@{src/store.h}}
+
+
+To help with very simple data saving between MCU resets. For now only using inbuilt EEPROM.  
+
+
+{\ttfamily \#include $<$Arduino.\+h$>$}\newline
+Include dependency graph for store.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=112pt]{store_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=123pt]{store_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \textbf{ storage\+Block\+\_\+T}
+\begin{DoxyCompactList}\small\item\em Storage block TYPE info. \end{DoxyCompactList}\item 
+class \textbf{ storage\+Block\+\_\+C}
+\begin{DoxyCompactList}\small\item\em Blocks of storage. eg. 1 block for 1wire chips and another for room data. each of different lengths with different ids. \end{DoxyCompactList}\item 
+class \textbf{ block\+Mem\+\_\+C}
+\begin{DoxyCompactList}\small\item\em Wrapper for \doxyref{storage\+Block\+\_\+C}{p.}{classstorageBlock__C} but working with only 1 block id(eg all the 1wire chips saved info). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \textbf{ s\+Blocks}(S)~static \textbf{ storage\+Block\+\_\+T} storage\+BlocksA[S]; max\+Storage\+Blocks = S;
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+To help with very simple data saving between MCU resets. For now only using inbuilt EEPROM. 
+
+\begin{DoxyAuthor}{Author}
+Joseph ({\texttt{ you@domain.\+com}}) 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+v0.\+0.\+2 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2021-\/12-\/28
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2021
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Joseph ({\texttt{ you@domain.\+com}}) 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+v0.\+0.\+2 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2021-\/12-\/28
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2022
+\end{DoxyCopyright}
+At least for now\+: 1\+: a function to call to request a block of storage. 2\+: This unit should keep track of how much space is used and start index of each block. 
+
+Definition in file \textbf{ store.\+h}.
+
+
+
+\doxysubsection{Class Documentation}
+\index{storageBlock\_T@{storageBlock\_T}}\label{structstorageBlock__T}
+\doxysubsubsection{struct storage\+Block\+\_\+T}
+Storage block TYPE info. 
+
+Definition at line \textbf{ 24} of file \textbf{ store.\+h}.
+
+
+
+Collaboration diagram for storage\+Block\+\_\+T\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=143pt]{structstorageBlock__T__coll__graph}
+\end{center}
+\end{figure}
+\begin{DoxyFields}{Class Members}
+\mbox{\label{store_8h_a4c0d47a86eb54a54bdc30f23b0d648fc}} 
+byte&
+size&
+sizeof each storage slot in bytes. \\
+\hline
+
+\mbox{\label{store_8h_a91392f39b00b69c871dcfbd57095b643}} 
+byte&
+slots&
+EEprom start index. \newline
+Number of records to save space for in EEPROM for. \\
+\hline
+
+\mbox{\label{store_8h_a140e81ed333b945f2430230e7da23f45}} 
+word&
+start&
+\\
+\hline
+
+\end{DoxyFields}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\label{store_8h_a0eee8221fc0e018111a612d1c2a28523}} 
+\index{store.h@{store.h}!sBlocks@{sBlocks}}
+\index{sBlocks@{sBlocks}!store.h@{store.h}}
+\doxysubsubsection{sBlocks}
+{\footnotesize\ttfamily \#define s\+Blocks(\begin{DoxyParamCaption}\item[{}]{S }\end{DoxyParamCaption})~static \textbf{ storage\+Block\+\_\+T} storage\+BlocksA[S]; max\+Storage\+Blocks = S;}
+
+
+
+Definition at line \textbf{ 96} of file \textbf{ store.\+h}.
+

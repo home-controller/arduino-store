@@ -1,4 +1,0 @@
-<map id="blockMem_C::writeSlot" name="blockMem_C::writeSlot">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,177,32"/>
-<area shape="rect" id="node2" href="$classstorage_block___c.html#a7e258c73d18c8939ab2fcab66fcf6a64" title="Write a var into permanent storage eg. EEPROM into a var/struct, copys mem of size = to the slot size..." alt="" coords="225,5,415,32"/>
-</map>

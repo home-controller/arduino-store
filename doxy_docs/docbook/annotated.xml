@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
 <section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_annotated" xml:lang="en-US">
 <title>Class List</title>
-Here are the classes, structs, unions and interfaces with brief descriptions:<link linkend="_classblock_mem___c">blockMem_C</link>
-<para>Wrapper for <link linkend="_classstorage_block___c">storageBlock_C</link> but working with only 1 block id(eg all the 1wire chips saved info) </para>
-<link linkend="_classstorage_block___c">storageBlock_C</link>
-<para>Blocks of storage. eg. 1 block for 1wire chips and another for room data. each of different lengths with differnet ids </para>
+Here are the classes, structs, unions and interfaces with brief descriptions:<link linkend="_classblockMem__C">blockMem_C</link>
+<para>Wrapper for <link linkend="_classstorageBlock__C">storageBlock_C</link> but working with only 1 block id(eg all the 1wire chips saved info) </para>
+<link linkend="_classstorageBlock__C">storageBlock_C</link>
+<para>Blocks of storage. eg. 1 block for 1wire chips and another for room data. each of different lengths with different ids </para>
 </section>

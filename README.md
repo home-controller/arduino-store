@@ -1,4 +1,4 @@
-My Main Page                         {#mainpage}
+Main Page for arduino storage                         {#mainpage}
 ============
 
 ## For storing setup etc. vars to more permanent storage like eeprom, flash etc.

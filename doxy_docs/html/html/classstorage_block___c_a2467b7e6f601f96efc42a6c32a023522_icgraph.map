@@ -1,6 +1,0 @@
-<map id="storageBlock_C::blockEnd" name="storageBlock_C::blockEnd">
-<area shape="rect" id="node1" title="get block end index. i.e. the address of last byte used by the block. If block size is 0 there isn&#39;t ..." alt="" coords="419,31,609,57"/>
-<area shape="rect" id="node2" href="$classblock_mem___c.html#a60818204acd6616f5513548b18b49a98" title=" " alt="" coords="197,5,371,32"/>
-<area shape="rect" id="node3" href="$classstorage_block___c.html#a5689bada4bede0c81ab36fe2f06cc9f0" title="print info about the storage block to the serial." alt="" coords="203,56,365,83"/>
-<area shape="rect" id="node4" href="$classblock_mem___c.html#a9230be465ff59edbed66fe536b3df2be" title=" " alt="" coords="5,56,149,83"/>
-</map>

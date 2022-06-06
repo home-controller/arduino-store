@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<chapter xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_mainpage" xml:lang="en-US">
+
+<para><anchor xml:id="_index_1mainpage"/></para>
+<section xml:id="_index_1autotoc_md0">
+<title>For storing setup etc. vars to more permanent storage like eeprom, flash etc.</title>
+
+<para><itemizedlist>
+<listitem>
+<para>This is a work in progress.</para>
+</listitem><listitem>
+<para>I am only getting to parts working as I need then for my home auto projects.</para>
+</listitem><listitem>
+<para>So I really wouldn&apos;t recommend anyone else using it at this point.</para>
+</listitem><listitem>
+<para>[x] incomplete</para>
+</listitem><listitem>
+<para>[ ] single vars stored.</para>
+</listitem><listitem>
+<para>[ ] mega328p eeprom blocks of storage split into slots of same length.</para>
+</listitem><listitem>
+<para>[ ] RP2040 flash.</para>
+</listitem><listitem>
+<para>[ ]</para>
+</listitem><listitem>
+<para>[ ] complete </para>
+</listitem></itemizedlist>
+</para>
+</section>
+</chapter>

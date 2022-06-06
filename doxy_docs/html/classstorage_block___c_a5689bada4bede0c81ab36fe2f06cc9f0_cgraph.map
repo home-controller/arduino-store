@@ -1,5 +1,0 @@
-<map id="storageBlock_C::print" name="storageBlock_C::print">
-<area shape="rect" id="node1" title=" " alt="" coords="5,31,167,57"/>
-<area shape="rect" id="node2" href="$classstorage_block___c.html#a2467b7e6f601f96efc42a6c32a023522" title="get block end index. i.e. the address of last byte used by the block. If block size is 0 there isn&#39;t ..." alt="" coords="216,5,407,32"/>
-<area shape="rect" id="node3" href="$classstorage_block___c.html#ab118a805d45d5b6208fbd31dface7e39" title="get the storage space size in bytes reserved for the block." alt="" coords="215,56,408,83"/>
-</map>

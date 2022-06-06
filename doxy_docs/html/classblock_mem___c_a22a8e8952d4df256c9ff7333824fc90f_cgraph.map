@@ -1,4 +1,0 @@
-<map id="blockMem_C::readSlot" name="blockMem_C::readSlot">
-<area shape="rect" id="node1" title="Read a slot of data from storage. e.g. eeprom, flash, SDcard(only eeprom for now)" alt="" coords="5,5,173,32"/>
-<area shape="rect" id="node2" href="$classstorage_block___c.html#a85ff9c2e220fa0a8e7c1d62f85a3cf39" title="Read a var from permanent storage eg. EEPROM into a var/struct, copys mem of size = to the slot size ..." alt="" coords="221,5,407,32"/>
-</map>

@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['maxblocks_0',['maxBlocks',['../classstorage_block___c.html#ab6449bda89cd0dab792e60e5ee862939',1,'storageBlock_C']]],
-  ['memmanager_1',['memManager',['../classblock_mem___c.html#a69d39ad66d8abfca22e21482b5cfe329',1,'blockMem_C']]]
+  ['nextstartaddr_0',['nextStartAddr',['../classstorageBlock__C.html#a8534147de81cd1c257a0ec727440213c',1,'storageBlock_C']]]
 ];

@@ -1,0 +1,575 @@
+%!PS-Adobe-3.0
+%%Creator: graphviz version 3.0.0 (0)
+%%Title: storageBlock_C
+%%Pages: (atend)
+%%BoundingBox: (atend)
+%%EndComments
+save
+%%BeginProlog
+/DotDict 200 dict def
+DotDict begin
+
+/setupLatin1 {
+mark
+/EncodingVector 256 array def
+ EncodingVector 0
+
+ISOLatin1Encoding 0 255 getinterval putinterval
+EncodingVector 45 /hyphen put
+
+% Set up ISO Latin 1 character encoding
+/starnetISO {
+        dup dup findfont dup length dict begin
+        { 1 index /FID ne { def }{ pop pop } ifelse
+        } forall
+        /Encoding EncodingVector def
+        currentdict end definefont
+} def
+/Times-Roman starnetISO def
+/Times-Italic starnetISO def
+/Times-Bold starnetISO def
+/Times-BoldItalic starnetISO def
+/Helvetica starnetISO def
+/Helvetica-Oblique starnetISO def
+/Helvetica-Bold starnetISO def
+/Helvetica-BoldOblique starnetISO def
+/Courier starnetISO def
+/Courier-Oblique starnetISO def
+/Courier-Bold starnetISO def
+/Courier-BoldOblique starnetISO def
+cleartomark
+} bind def
+
+%%BeginResource: procset graphviz 0 0
+/coord-font-family /Times-Roman def
+/default-font-family /Times-Roman def
+/coordfont coord-font-family findfont 8 scalefont def
+
+/InvScaleFactor 1.0 def
+/set_scale {
+       dup 1 exch div /InvScaleFactor exch def
+       scale
+} bind def
+
+% styles
+/solid { [] 0 setdash } bind def
+/dashed { [9 InvScaleFactor mul dup ] 0 setdash } bind def
+/dotted { [1 InvScaleFactor mul 6 InvScaleFactor mul] 0 setdash } bind def
+/invis {/fill {newpath} def /stroke {newpath} def /show {pop newpath} def} bind def
+/bold { 2 setlinewidth } bind def
+/filled { } bind def
+/unfilled { } bind def
+/rounded { } bind def
+/diagonals { } bind def
+/tapered { } bind def
+
+% hooks for setting color 
+/nodecolor { sethsbcolor } bind def
+/edgecolor { sethsbcolor } bind def
+/graphcolor { sethsbcolor } bind def
+/nopcolor {pop pop pop} bind def
+
+/beginpage {	% i j npages
+	/npages exch def
+	/j exch def
+	/i exch def
+	/str 10 string def
+	npages 1 gt {
+		gsave
+			coordfont setfont
+			0 0 moveto
+			(\() show i str cvs show (,) show j str cvs show (\)) show
+		grestore
+	} if
+} bind def
+
+/set_font {
+	findfont exch
+	scalefont setfont
+} def
+
+% draw text fitted to its expected width
+/alignedtext {			% width text
+	/text exch def
+	/width exch def
+	gsave
+		width 0 gt {
+			[] 0 setdash
+			text stringwidth pop width exch sub text length div 0 text ashow
+		} if
+	grestore
+} def
+
+/boxprim {				% xcorner ycorner xsize ysize
+		4 2 roll
+		moveto
+		2 copy
+		exch 0 rlineto
+		0 exch rlineto
+		pop neg 0 rlineto
+		closepath
+} bind def
+
+/ellipse_path {
+	/ry exch def
+	/rx exch def
+	/y exch def
+	/x exch def
+	matrix currentmatrix
+	newpath
+	x y translate
+	rx ry scale
+	0 0 1 0 360 arc
+	setmatrix
+} bind def
+
+/endpage { showpage } bind def
+/showpage { } def
+
+/layercolorseq
+	[	% layer color sequence - darkest to lightest
+		[0 0 0]
+		[.2 .8 .8]
+		[.4 .8 .8]
+		[.6 .8 .8]
+		[.8 .8 .8]
+	]
+def
+
+/layerlen layercolorseq length def
+
+/setlayer {/maxlayer exch def /curlayer exch def
+	layercolorseq curlayer 1 sub layerlen mod get
+	aload pop sethsbcolor
+	/nodecolor {nopcolor} def
+	/edgecolor {nopcolor} def
+	/graphcolor {nopcolor} def
+} bind def
+
+/onlayer { curlayer ne {invis} if } def
+
+/onlayers {
+	/myupper exch def
+	/mylower exch def
+	curlayer mylower lt
+	curlayer myupper gt
+	or
+	{invis} if
+} def
+
+/curlayer 0 def
+
+%%EndResource
+%%EndProlog
+%%BeginSetup
+14 default-font-family set_font
+% /arrowlength 10 def
+% /arrowwidth 5 def
+
+% make sure pdfmark is harmless for PS-interpreters other than Distiller
+/pdfmark where {pop} {userdict /pdfmark /cleartomark load put} ifelse
+% make '<<' and '>>' safe on PS Level 1 devices
+/languagelevel where {pop languagelevel}{1} ifelse
+2 lt {
+    userdict (<<) cvn ([) cvn load put
+    userdict (>>) cvn ([) cvn load put
+} if
+
+%%EndSetup
+setupLatin1
+%%Page: 1 1
+%%PageBoundingBox: 36 36 333 598
+%%PageOrientation: Portrait
+0 0 1 beginpage
+gsave
+36 36 297 562 boxprim clip newpath
+1 1 set_scale 0 rotate 40 40 translate
+% Node1
+gsave
+0 0 0.74902 nodecolor
+newpath 46.5 .5 moveto
+46.5 332.5 lineto
+189.5 332.5 lineto
+189.5 .5 lineto
+closepath fill
+1 setlinewidth
+filled
+0 0 0 nodecolor
+newpath 46.5 .5 moveto
+46.5 332.5 lineto
+189.5 332.5 lineto
+189.5 .5 lineto
+closepath stroke
+0 0 0 nodecolor
+10 /Helvetica set_font
+80 320.5 moveto 76 (storageBlock_C) alignedtext
+1 setlinewidth
+filled
+0 0 0 nodecolor
+newpath 46.5 313.5 moveto
+189.5 313.5 lineto
+stroke
+0 0 0 nodecolor
+10 /Helvetica set_font
+116 301.5 moveto 4 ( ) alignedtext
+1 setlinewidth
+filled
+0 0 0 nodecolor
+newpath 46.5 294.5 moveto
+189.5 294.5 lineto
+stroke
+0 0 0 nodecolor
+10 /Helvetica set_font
+54.5 282.5 moveto 113 (+ storageBlock_C\(byte) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+54.5 271.5 moveto 127 ( maxBlocks, storageBlock) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+54.5 260.5 moveto 127 (_T a[], byte startIndex=0\)) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+54.5 249.5 moveto 103 (+ ~storageBlock_C\(\)) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+54.5 238.5 moveto 119 (+ void leaveFirst\(byte i\)) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+54.5 227.5 moveto 107 (+ byte addBlock\(byte) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+54.5 216.5 moveto 97 ( slots, byte recSize\)) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+54.5 205.5 moveto 124 (+ byte blockSize\(byte id\)) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+54.5 194.5 moveto 114 (+ word blockStart\(byte) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+54.5 183.5 moveto 43 ( blockId\)) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+54.5 172.5 moveto 124 (+ word blockEnd\(byte id\)) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+54.5 161.5 moveto 118 (+ byte getSlots\(byte id\)) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+54.5 150.5 moveto 106 (+ byte readByte\(byte) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+54.5 139.5 moveto 91 ( blockId, byte slot,) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+54.5 128.5 moveto 60 ( byte offset\)) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+54.5 117.5 moveto 102 (+ bool readSlot\(byte) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+54.5 106.5 moveto 91 ( blockId, byte slot,) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+54.5 95.5 moveto 40 ( void *r\)) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+54.5 84.5 moveto 109 (+ bool writeByte\(byte) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+54.5 73.5 moveto 91 ( blockId, byte slot,) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+54.5 62.5 moveto 118 ( byte offset, byte value\)) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+54.5 51.5 moveto 105 (+ bool writeSlot\(byte) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+54.5 40.5 moveto 91 ( blockId, byte slot,) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+54.5 29.5 moveto 40 ( void *r\)) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+54.5 18.5 moveto 100 (+ void print\(byte id\)) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+54.5 7.5 moveto 121 (+ void printMemUsage\(\)) alignedtext
+grestore
+% Node2
+gsave
+0 0 1 nodecolor
+newpath 0 380.5 moveto
+0 437.5 lineto
+56 437.5 lineto
+56 380.5 lineto
+closepath fill
+1 setlinewidth
+filled
+0 0 0 nodecolor
+newpath 0 380.5 moveto
+0 437.5 lineto
+56 437.5 lineto
+56 380.5 lineto
+closepath stroke
+0 0 0 nodecolor
+10 /Helvetica set_font
+8 425.5 moveto 40 (uint16_t) alignedtext
+1 setlinewidth
+filled
+0 0 0 nodecolor
+newpath 0 418.5 moveto
+56 418.5 lineto
+stroke
+0 0 0 nodecolor
+10 /Helvetica set_font
+26 406.5 moveto 4 ( ) alignedtext
+1 setlinewidth
+filled
+0 0 0 nodecolor
+newpath 0 399.5 moveto
+56 399.5 lineto
+stroke
+0 0 0 nodecolor
+10 /Helvetica set_font
+26 387.5 moveto 4 ( ) alignedtext
+grestore
+% Node2->Node1
+gsave
+1 setlinewidth
+solid
+0 0 0.25098 edgecolor
+newpath 26.0964 380.4445 moveto
+26.0708 370.9979 26.7457 360.4338 29 351 curveto
+32.311 337.1443 36.7796 323.1113 41.9602 309.2989 curveto
+stroke
+1 setlinewidth
+solid
+0 0 0.25098 edgecolor
+newpath 42.1026 308.9343 moveto
+40.5604 301.89 lineto
+46.4696 297.7571 lineto
+48.0119 304.8014 lineto
+closepath stroke
+0 0 0 edgecolor
+10 /Helvetica set_font
+29 354 moveto 75 ( -nextStartAddr) alignedtext
+grestore
+% Node3
+gsave
+0 0 1 nodecolor
+newpath 133 496.5 moveto
+133 553.5 lineto
+171 553.5 lineto
+171 496.5 lineto
+closepath fill
+1 setlinewidth
+filled
+0 0 0 nodecolor
+newpath 133 496.5 moveto
+133 553.5 lineto
+171 553.5 lineto
+171 496.5 lineto
+closepath stroke
+0 0 0 nodecolor
+10 /Helvetica set_font
+141 541.5 moveto 22 (byte) alignedtext
+1 setlinewidth
+filled
+0 0 0 nodecolor
+newpath 133 534.5 moveto
+171 534.5 lineto
+stroke
+0 0 0 nodecolor
+10 /Helvetica set_font
+150 522.5 moveto 4 ( ) alignedtext
+1 setlinewidth
+filled
+0 0 0 nodecolor
+newpath 133 515.5 moveto
+171 515.5 lineto
+stroke
+0 0 0 nodecolor
+10 /Helvetica set_font
+150 503.5 moveto 4 ( ) alignedtext
+grestore
+% Node3->Node1
+gsave
+1 setlinewidth
+solid
+0 0 0.25098 edgecolor
+newpath 141.9778 496.1284 moveto
+136.4809 479.4901 130.1575 457.8076 127 438 curveto
+122.233 408.0961 119.2958 376.1059 117.5691 344.9748 curveto
+stroke
+1 setlinewidth
+solid
+0 0 0.25098 edgecolor
+newpath 117.5509 344.6145 moveto
+113.2526 338.8244 lineto
+116.944 332.6298 lineto
+121.2424 338.4198 lineto
+closepath stroke
+0 0 0 edgecolor
+10 /Helvetica set_font
+127 412 moveto 61 ( -maxBlocks) alignedtext
+0 0 0 edgecolor
+10 /Helvetica set_font
+131.5 401 moveto 52 (-slotsUsed) alignedtext
+grestore
+% Node4
+gsave
+[ /Rect [ 197 380 289 438 ]
+  /Border [ 0 0 0 ]
+  /Action << /Subtype /URI /URI ($store_8h.html#structstorageBlock__T) >>
+  /Subtype /Link
+/ANN pdfmark
+0 0 1 nodecolor
+newpath 197 380.5 moveto
+197 437.5 lineto
+289 437.5 lineto
+289 380.5 lineto
+closepath fill
+1 setlinewidth
+filled
+0 0 0 nodecolor
+newpath 197 380.5 moveto
+197 437.5 lineto
+289 437.5 lineto
+289 380.5 lineto
+closepath stroke
+0 0 0 nodecolor
+10 /Helvetica set_font
+205 425.5 moveto 76 (storageBlock_T) alignedtext
+1 setlinewidth
+filled
+0 0 0 nodecolor
+newpath 197 418.5 moveto
+289 418.5 lineto
+stroke
+0 0 0 nodecolor
+10 /Helvetica set_font
+241 406.5 moveto 4 ( ) alignedtext
+1 setlinewidth
+filled
+0 0 0 nodecolor
+newpath 197 399.5 moveto
+289 399.5 lineto
+stroke
+0 0 0 nodecolor
+10 /Helvetica set_font
+241 387.5 moveto 4 ( ) alignedtext
+grestore
+% Node3->Node4
+gsave
+1 setlinewidth
+solid
+0 0 0.25098 edgecolor
+newpath 171.0766 500.1019 moveto
+183.1882 484.9291 199.1224 464.9675 212.914 447.6901 curveto
+stroke
+1 setlinewidth
+solid
+0 0 0.25098 edgecolor
+newpath 213.2553 447.2626 moveto
+213.8723 440.0779 lineto
+220.7416 437.8841 lineto
+220.1246 445.0688 lineto
+closepath stroke
+0 0 0 edgecolor
+10 /Helvetica set_font
+206.5 470 moveto 31 ( +size) alignedtext
+0 0 0 edgecolor
+10 /Helvetica set_font
+206 459 moveto 32 (+slots) alignedtext
+grestore
+% Node4->Node1
+gsave
+1 setlinewidth
+solid
+0 0 0.25098 edgecolor
+newpath 228.6609 380.4116 moveto
+219.9075 363.57 207.956 340.5753 195.1339 315.9056 curveto
+stroke
+1 setlinewidth
+solid
+0 0 0.25098 edgecolor
+newpath 195.1264 315.891 moveto
+188.81 312.4119 lineto
+189.5922 305.2433 lineto
+195.9085 308.7224 lineto
+closepath stroke
+0 0 0 edgecolor
+10 /Helvetica set_font
+220 354 moveto 50 ( +blocksA) alignedtext
+grestore
+% Node5
+gsave
+0 0 1 nodecolor
+newpath 222.5 496.5 moveto
+222.5 553.5 lineto
+263.5 553.5 lineto
+263.5 496.5 lineto
+closepath fill
+1 setlinewidth
+filled
+0 0 0 nodecolor
+newpath 222.5 496.5 moveto
+222.5 553.5 lineto
+263.5 553.5 lineto
+263.5 496.5 lineto
+closepath stroke
+0 0 0 nodecolor
+10 /Helvetica set_font
+230.5 541.5 moveto 25 (word) alignedtext
+1 setlinewidth
+filled
+0 0 0 nodecolor
+newpath 222.5 534.5 moveto
+263.5 534.5 lineto
+stroke
+0 0 0 nodecolor
+10 /Helvetica set_font
+241 522.5 moveto 4 ( ) alignedtext
+1 setlinewidth
+filled
+0 0 0 nodecolor
+newpath 222.5 515.5 moveto
+263.5 515.5 lineto
+stroke
+0 0 0 nodecolor
+10 /Helvetica set_font
+241 503.5 moveto 4 ( ) alignedtext
+grestore
+% Node5->Node4
+gsave
+1 setlinewidth
+solid
+0 0 0.25098 edgecolor
+newpath 243 496.4038 moveto
+243 482.5039 243 465.3915 243 450.073 curveto
+stroke
+1 setlinewidth
+solid
+0 0 0.25098 edgecolor
+newpath 243.0001 449.7372 moveto
+239 443.7372 lineto
+243 437.7372 lineto
+247 443.7372 lineto
+closepath stroke
+0 0 0 edgecolor
+10 /Helvetica set_font
+243 464.5 moveto 34 ( +start) alignedtext
+grestore
+endpage
+showpage
+grestore
+%%PageTrailer
+%%EndPage: 1
+%%Trailer
+%%Pages: 1
+%%BoundingBox: 36 36 333 598
+end
+restore
+%%EOF

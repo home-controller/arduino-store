@@ -16,6 +16,16 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript">
+window.MathJax = {
+  options: {
+    ignoreHtmlClass: 'tex2jax_ignore',
+    processHtmlClass: 'tex2jax_process'
+  }
+};
+</script>
+<script type="text/javascript" id="MathJax-script" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/es5/tex-chtml.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -84,14 +94,14 @@ $(document).ready(function(){initNavTree('functions_vars.html',''); initResizabl
 
 <div class="contents">
 &#160;<ul>
-<li>blocksA&#160;:&#160;<a class="el" href="classstorage_block___c.html#a9069a91d9228649e3d3f67b5f40e182a">storageBlock_C</a></li>
-<li>eeprom_used&#160;:&#160;<a class="el" href="classstorage_block___c.html#af667e7f1303943fe187acf5615fa0ee2">storageBlock_C</a></li>
-<li>id&#160;:&#160;<a class="el" href="classblock_mem___c.html#a479845f6dc74b5d9a3abb29a7d69db7b">blockMem_C</a></li>
-<li>maxBlocks&#160;:&#160;<a class="el" href="classstorage_block___c.html#ab6449bda89cd0dab792e60e5ee862939">storageBlock_C</a></li>
-<li>memManager&#160;:&#160;<a class="el" href="classblock_mem___c.html#a69d39ad66d8abfca22e21482b5cfe329">blockMem_C</a></li>
+<li>blocksA&#160;:&#160;<a class="el" href="classstorageBlock__C.html#a9069a91d9228649e3d3f67b5f40e182a">storageBlock_C</a></li>
+<li>id&#160;:&#160;<a class="el" href="classblockMem__C.html#a479845f6dc74b5d9a3abb29a7d69db7b">blockMem_C</a></li>
+<li>maxBlocks&#160;:&#160;<a class="el" href="classstorageBlock__C.html#ab6449bda89cd0dab792e60e5ee862939">storageBlock_C</a></li>
+<li>memManager&#160;:&#160;<a class="el" href="classblockMem__C.html#a69d39ad66d8abfca22e21482b5cfe329">blockMem_C</a></li>
+<li>nextStartAddr&#160;:&#160;<a class="el" href="classstorageBlock__C.html#a8534147de81cd1c257a0ec727440213c">storageBlock_C</a></li>
 <li>size&#160;:&#160;<a class="el" href="store_8h.html#a4c0d47a86eb54a54bdc30f23b0d648fc">storageBlock_T</a></li>
 <li>slots&#160;:&#160;<a class="el" href="store_8h.html#a91392f39b00b69c871dcfbd57095b643">storageBlock_T</a></li>
-<li>slotsUsed&#160;:&#160;<a class="el" href="classstorage_block___c.html#af11fee6180446c962384ebe4c5d8eb11">storageBlock_C</a></li>
+<li>slotsUsed&#160;:&#160;<a class="el" href="classstorageBlock__C.html#af11fee6180446c962384ebe4c5d8eb11">storageBlock_C</a></li>
 <li>start&#160;:&#160;<a class="el" href="store_8h.html#a140e81ed333b945f2430230e7da23f45">storageBlock_T</a></li>
 </ul>
 </div><!-- contents -->
@@ -99,7 +109,7 @@ $(document).ready(function(){initNavTree('functions_vars.html',''); initResizabl
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Mon Jun 6 2022 16:23:44 for arduino store by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Mon Jun 6 2022 22:45:58 for arduino store by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>

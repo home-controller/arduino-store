@@ -1,0 +1,448 @@
+\doxysection{block\+Mem\+\_\+C Class Reference}
+\label{classblockMem__C}\index{blockMem\_C@{blockMem\_C}}
+
+
+Wrapper for \doxyref{storage\+Block\+\_\+C}{p.}{classstorageBlock__C} but working with only 1 block id(eg all the 1wire chips saved info).  
+
+
+
+
+{\ttfamily \#include $<$store.\+h$>$}
+
+
+
+Collaboration diagram for block\+Mem\+\_\+C\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classblockMem__C__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ set\+Id} (byte id1)
+\item 
+byte \textbf{ get\+Id} ()
+\item 
+void \textbf{ set\+Mem\+Manager} (\textbf{ storage\+Block\+\_\+C} \&o)
+\item 
+byte \textbf{ block\+Size} ()
+\item 
+byte \textbf{ slot\+Size} ()
+\begin{DoxyCompactList}\small\item\em mem for block = number of slots $\ast$ slot size. \end{DoxyCompactList}\item 
+byte \textbf{ read\+Byte} (byte slot, byte offset)
+\item 
+bool \textbf{ read\+Slot} (byte slot, void $\ast$r)
+\begin{DoxyCompactList}\small\item\em Read a slot of data from storage. e.\+g. eeprom, flash, SDcard(only eeprom for now) \end{DoxyCompactList}\item 
+bool \textbf{ write\+Byte} (byte slot, byte offset, byte value)
+\item 
+bool \textbf{ write\+Slot} (byte slot, void $\ast$r)
+\item 
+void \textbf{ print} ()
+\item 
+byte \textbf{ get\+Slots} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+byte \textbf{ block\+Start} ()
+\item 
+byte \textbf{ block\+End} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+byte \textbf{ id}
+\item 
+\textbf{ storage\+Block\+\_\+C} $\ast$ \textbf{ mem\+Manager}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Wrapper for \doxyref{storage\+Block\+\_\+C}{p.}{classstorageBlock__C} but working with only 1 block id(eg all the 1wire chips saved info). 
+
+This works with a block of storage consisting of \doxyref{get\+Slots()}{p.}{classblockMem__C_ab00c3bdc52c49a26f8b6931f9af058ab} slots all of the same size. e.\+g if we need to store 15 arrays of bytes each 7 bytes long. i.\+e. Equivelent to\+: byte array\+Of\+Type[\doxyref{get\+Slots()}{p.}{classblockMem__C_ab00c3bdc52c49a26f8b6931f9af058ab}=15][7]; 
+
+Definition at line \textbf{ 73} of file \textbf{ store.\+h}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\label{classblockMem__C_a60818204acd6616f5513548b18b49a98}} 
+\index{blockMem\_C@{blockMem\_C}!blockEnd@{blockEnd}}
+\index{blockEnd@{blockEnd}!blockMem\_C@{blockMem\_C}}
+\doxysubsubsection{blockEnd()}
+{\footnotesize\ttfamily byte block\+Mem\+\_\+\+C\+::block\+End (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Definition at line \textbf{ 78} of file \textbf{ store.\+h}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00078 \{ \textcolor{keywordflow}{return} memManager-\/>blockEnd(\textcolor{keywordtype}{id}); \}}
+
+\end{DoxyCode}
+
+
+References \textbf{ storage\+Block\+\_\+\+C\+::block\+End()}, and \textbf{ mem\+Manager}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classblockMem__C_a60818204acd6616f5513548b18b49a98_cgraph}
+\end{center}
+\end{figure}
+\mbox{\label{classblockMem__C_a6ac5c94d5e447ba91f9a92766651ffd4}} 
+\index{blockMem\_C@{blockMem\_C}!blockSize@{blockSize}}
+\index{blockSize@{blockSize}!blockMem\_C@{blockMem\_C}}
+\doxysubsubsection{blockSize()}
+{\footnotesize\ttfamily byte block\+Mem\+\_\+\+C\+::block\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \textbf{ 83} of file \textbf{ store.\+h}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00083 \{ \textcolor{keywordflow}{return} memManager-\/>blockSize(\textcolor{keywordtype}{id}); \}}
+
+\end{DoxyCode}
+
+
+References \textbf{ storage\+Block\+\_\+\+C\+::block\+Size()}, and \textbf{ mem\+Manager}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classblockMem__C_a6ac5c94d5e447ba91f9a92766651ffd4_cgraph}
+\end{center}
+\end{figure}
+\mbox{\label{classblockMem__C_ae2966e00bdc0b6ac8b5e7fb9eefd0cf2}} 
+\index{blockMem\_C@{blockMem\_C}!blockStart@{blockStart}}
+\index{blockStart@{blockStart}!blockMem\_C@{blockMem\_C}}
+\doxysubsubsection{blockStart()}
+{\footnotesize\ttfamily byte block\+Mem\+\_\+\+C\+::block\+Start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Definition at line \textbf{ 77} of file \textbf{ store.\+h}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00077 \{ \textcolor{keywordflow}{return} memManager-\/>blockStart(\textcolor{keywordtype}{id}); \}}
+
+\end{DoxyCode}
+
+
+References \textbf{ storage\+Block\+\_\+\+C\+::block\+Start()}, and \textbf{ mem\+Manager}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classblockMem__C_ae2966e00bdc0b6ac8b5e7fb9eefd0cf2_cgraph}
+\end{center}
+\end{figure}
+\mbox{\label{classblockMem__C_a7d2f47edbc0961e8b84a9763d1b53429}} 
+\index{blockMem\_C@{blockMem\_C}!getId@{getId}}
+\index{getId@{getId}!blockMem\_C@{blockMem\_C}}
+\doxysubsubsection{getId()}
+{\footnotesize\ttfamily byte block\+Mem\+\_\+\+C\+::get\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \textbf{ 81} of file \textbf{ store.\+h}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00081 \{ \textcolor{keywordflow}{return} id; \}}
+
+\end{DoxyCode}
+
+
+References \textbf{ id}.
+
+\mbox{\label{classblockMem__C_ab00c3bdc52c49a26f8b6931f9af058ab}} 
+\index{blockMem\_C@{blockMem\_C}!getSlots@{getSlots}}
+\index{getSlots@{getSlots}!blockMem\_C@{blockMem\_C}}
+\doxysubsubsection{getSlots()}
+{\footnotesize\ttfamily byte block\+Mem\+\_\+\+C\+::get\+Slots (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \textbf{ 90} of file \textbf{ store.\+h}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00090 \{ \textcolor{keywordflow}{return} memManager-\/>getSlots(\textcolor{keywordtype}{id});; \}}
+
+\end{DoxyCode}
+
+
+References \textbf{ storage\+Block\+\_\+\+C\+::get\+Slots()}, and \textbf{ mem\+Manager}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=343pt]{classblockMem__C_ab00c3bdc52c49a26f8b6931f9af058ab_cgraph}
+\end{center}
+\end{figure}
+\mbox{\label{classblockMem__C_a9230be465ff59edbed66fe536b3df2be}} 
+\index{blockMem\_C@{blockMem\_C}!print@{print}}
+\index{print@{print}!blockMem\_C@{blockMem\_C}}
+\doxysubsubsection{print()}
+{\footnotesize\ttfamily void block\+Mem\+\_\+\+C\+::print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \textbf{ 89} of file \textbf{ store.\+h}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00089 \{ \textcolor{keywordflow}{return} memManager-\/>print(\textcolor{keywordtype}{id}); \}}
+
+\end{DoxyCode}
+
+
+References \textbf{ mem\+Manager}, and \textbf{ storage\+Block\+\_\+\+C\+::print()}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classblockMem__C_a9230be465ff59edbed66fe536b3df2be_cgraph}
+\end{center}
+\end{figure}
+\mbox{\label{classblockMem__C_a553a53a98f4ef6f9b6f1f7b69d366214}} 
+\index{blockMem\_C@{blockMem\_C}!readByte@{readByte}}
+\index{readByte@{readByte}!blockMem\_C@{blockMem\_C}}
+\doxysubsubsection{readByte()}
+{\footnotesize\ttfamily byte block\+Mem\+\_\+\+C\+::read\+Byte (\begin{DoxyParamCaption}\item[{byte}]{slot,  }\item[{byte}]{offset }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \textbf{ 85} of file \textbf{ store.\+h}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00085 \{ \textcolor{keywordflow}{return} memManager-\/>readByte(\textcolor{keywordtype}{id}, slot, offset); \}}
+
+\end{DoxyCode}
+
+
+References \textbf{ mem\+Manager}, and \textbf{ storage\+Block\+\_\+\+C\+::read\+Byte()}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classblockMem__C_a553a53a98f4ef6f9b6f1f7b69d366214_cgraph}
+\end{center}
+\end{figure}
+\mbox{\label{classblockMem__C_a22a8e8952d4df256c9ff7333824fc90f}} 
+\index{blockMem\_C@{blockMem\_C}!readSlot@{readSlot}}
+\index{readSlot@{readSlot}!blockMem\_C@{blockMem\_C}}
+\doxysubsubsection{readSlot()}
+{\footnotesize\ttfamily bool block\+Mem\+\_\+\+C\+::read\+Slot (\begin{DoxyParamCaption}\item[{byte}]{slot,  }\item[{void $\ast$}]{r }\end{DoxyParamCaption})}
+
+
+
+Read a slot of data from storage. e.\+g. eeprom, flash, SDcard(only eeprom for now) 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em slot} & The slot to read, mem copy len is = the size of the rec/slot. 0 for first. \\
+\hline
+\mbox{\texttt{ out}}  & {\em r} & pointer to the memory to copy the slot into. As not using templates need to make sure sizeof(var pointed to by r) $>$= slot size.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true true if no problems 
+
+false 
+\end{DoxyReturn}
+
+
+Definition at line \textbf{ 216} of file \textbf{ store.\+cpp}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00216                                               \{}
+\DoxyCodeLine{00217     \textcolor{comment}{//io\_print( "{}, sizeof(memManager):"{} ); io\_print\_n( sizeof( memManager ) );}}
+\DoxyCodeLine{00218     \textcolor{comment}{//io\_print( "{}, memManager:"{} ); io\_print\_n( ( word )( \&( *memManager ) ) );}}
+\DoxyCodeLine{00219     \textcolor{keywordflow}{return} memManager-\/>readSlot( \textcolor{keywordtype}{id}, slot, r );}
+\DoxyCodeLine{00220 \}}
+
+\end{DoxyCode}
+
+
+References \textbf{ mem\+Manager}, and \textbf{ storage\+Block\+\_\+\+C\+::read\+Slot()}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=345pt]{classblockMem__C_a22a8e8952d4df256c9ff7333824fc90f_cgraph}
+\end{center}
+\end{figure}
+\mbox{\label{classblockMem__C_a0ca4c16b7ab37bdd713f9af4c39c9246}} 
+\index{blockMem\_C@{blockMem\_C}!setId@{setId}}
+\index{setId@{setId}!blockMem\_C@{blockMem\_C}}
+\doxysubsubsection{setId()}
+{\footnotesize\ttfamily void block\+Mem\+\_\+\+C\+::set\+Id (\begin{DoxyParamCaption}\item[{byte}]{id1 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \textbf{ 80} of file \textbf{ store.\+h}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00080 \{ \textcolor{keywordtype}{id} = id1; \}}
+
+\end{DoxyCode}
+\mbox{\label{classblockMem__C_aa8522e68abf7be7e054bcab0081c01e6}} 
+\index{blockMem\_C@{blockMem\_C}!setMemManager@{setMemManager}}
+\index{setMemManager@{setMemManager}!blockMem\_C@{blockMem\_C}}
+\doxysubsubsection{setMemManager()}
+{\footnotesize\ttfamily void block\+Mem\+\_\+\+C\+::set\+Mem\+Manager (\begin{DoxyParamCaption}\item[{\textbf{ storage\+Block\+\_\+C} \&}]{o }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \textbf{ 82} of file \textbf{ store.\+h}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00082 \{ memManager = \&o; \}}
+
+\end{DoxyCode}
+
+
+References \textbf{ mem\+Manager}.
+
+\mbox{\label{classblockMem__C_abad38b2746fc7a01c61c597877c2c6d5}} 
+\index{blockMem\_C@{blockMem\_C}!slotSize@{slotSize}}
+\index{slotSize@{slotSize}!blockMem\_C@{blockMem\_C}}
+\doxysubsubsection{slotSize()}
+{\footnotesize\ttfamily byte block\+Mem\+\_\+\+C\+::slot\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+mem for block = number of slots $\ast$ slot size. 
+
+
+
+Definition at line \textbf{ 84} of file \textbf{ store.\+h}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00084 \{ \textcolor{keywordflow}{return} memManager-\/>blocksA[id].size; \}}
+
+\end{DoxyCode}
+
+
+References \textbf{ storage\+Block\+\_\+\+C\+::blocksA}, \textbf{ id}, \textbf{ mem\+Manager}, and \textbf{ storage\+Block\+\_\+\+T\+::size}.
+
+\mbox{\label{classblockMem__C_a384e3788e132d1ba9fac1b8c93fab642}} 
+\index{blockMem\_C@{blockMem\_C}!writeByte@{writeByte}}
+\index{writeByte@{writeByte}!blockMem\_C@{blockMem\_C}}
+\doxysubsubsection{writeByte()}
+{\footnotesize\ttfamily bool block\+Mem\+\_\+\+C\+::write\+Byte (\begin{DoxyParamCaption}\item[{byte}]{slot,  }\item[{byte}]{offset,  }\item[{byte}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \textbf{ 87} of file \textbf{ store.\+h}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00087 \{ \textcolor{keywordflow}{return} memManager-\/>writeByte(\textcolor{keywordtype}{id}, slot, offset, value); \}}
+
+\end{DoxyCode}
+
+
+References \textbf{ mem\+Manager}, and \textbf{ storage\+Block\+\_\+\+C\+::write\+Byte()}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classblockMem__C_a384e3788e132d1ba9fac1b8c93fab642_cgraph}
+\end{center}
+\end{figure}
+\mbox{\label{classblockMem__C_ae8b068f64f2b0dc1c74a278fd8f6b954}} 
+\index{blockMem\_C@{blockMem\_C}!writeSlot@{writeSlot}}
+\index{writeSlot@{writeSlot}!blockMem\_C@{blockMem\_C}}
+\doxysubsubsection{writeSlot()}
+{\footnotesize\ttfamily bool block\+Mem\+\_\+\+C\+::write\+Slot (\begin{DoxyParamCaption}\item[{byte}]{slot,  }\item[{void $\ast$}]{r }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \textbf{ 88} of file \textbf{ store.\+h}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00088 \{ \textcolor{keywordflow}{return} memManager-\/>writeSlot(\textcolor{keywordtype}{id}, slot, r); \}}
+
+\end{DoxyCode}
+
+
+References \textbf{ mem\+Manager}, and \textbf{ storage\+Block\+\_\+\+C\+::write\+Slot()}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classblockMem__C_ae8b068f64f2b0dc1c74a278fd8f6b954_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\label{classblockMem__C_a479845f6dc74b5d9a3abb29a7d69db7b}} 
+\index{blockMem\_C@{blockMem\_C}!id@{id}}
+\index{id@{id}!blockMem\_C@{blockMem\_C}}
+\doxysubsubsection{id}
+{\footnotesize\ttfamily byte block\+Mem\+\_\+\+C\+::id\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \textbf{ 75} of file \textbf{ store.\+h}.
+
+
+
+Referenced by \textbf{ get\+Id()}, and \textbf{ slot\+Size()}.
+
+\mbox{\label{classblockMem__C_a69d39ad66d8abfca22e21482b5cfe329}} 
+\index{blockMem\_C@{blockMem\_C}!memManager@{memManager}}
+\index{memManager@{memManager}!blockMem\_C@{blockMem\_C}}
+\doxysubsubsection{memManager}
+{\footnotesize\ttfamily \textbf{ storage\+Block\+\_\+C}$\ast$ block\+Mem\+\_\+\+C\+::mem\+Manager\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \textbf{ 76} of file \textbf{ store.\+h}.
+
+
+
+Referenced by \textbf{ block\+End()}, \textbf{ block\+Size()}, \textbf{ block\+Start()}, \textbf{ get\+Slots()}, \textbf{ print()}, \textbf{ read\+Byte()}, \textbf{ read\+Slot()}, \textbf{ set\+Mem\+Manager()}, \textbf{ slot\+Size()}, \textbf{ write\+Byte()}, and \textbf{ write\+Slot()}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\textbf{ store.\+h}\item 
+src/\textbf{ store.\+cpp}\end{DoxyCompactItemize}

@@ -1,0 +1,73 @@
+\doxysection{store.\+h}
+\label{store_8h_source}\index{src/store.h@{src/store.h}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 }
+\DoxyCodeLine{00015 \textcolor{preprocessor}{\#ifndef \_Store\_h}}
+\DoxyCodeLine{00016 \textcolor{preprocessor}{\#define \_Store\_h}}
+\DoxyCodeLine{00017 }
+\DoxyCodeLine{00018 \textcolor{preprocessor}{\#include <Arduino.h>}}
+\DoxyCodeLine{00019 }
+\DoxyCodeLine{00024 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{00025     word start;  }
+\DoxyCodeLine{00026     \textcolor{keywordtype}{byte} slots;  }
+\DoxyCodeLine{00027     \textcolor{keywordtype}{byte} size;   }
+\DoxyCodeLine{00028 \}storageBlock\_T;}
+\DoxyCodeLine{00029 }
+\DoxyCodeLine{00038 \textcolor{keyword}{class }storageBlock\_C \{}
+\DoxyCodeLine{00039 \textcolor{keyword}{private}:}
+\DoxyCodeLine{00040     uint16\_t nextStartAddr;     }
+\DoxyCodeLine{00041     \textcolor{keywordtype}{byte} maxBlocks;         }
+\DoxyCodeLine{00042     \textcolor{keywordtype}{byte} slotsUsed = 0;     }
+\DoxyCodeLine{00043 \textcolor{keyword}{public}:}
+\DoxyCodeLine{00044     storageBlock\_T* blocksA;    }
+\DoxyCodeLine{00045 }
+\DoxyCodeLine{00046     \textcolor{comment}{//setup}}
+\DoxyCodeLine{00047     storageBlock\_C(\textcolor{keywordtype}{byte} maxBlocks, storageBlock\_T a[ ], \textcolor{keywordtype}{byte} startIndex = 0);}
+\DoxyCodeLine{00048     \string~storageBlock\_C();}
+\DoxyCodeLine{00049     \textcolor{keywordtype}{void} leaveFirst(\textcolor{keywordtype}{byte} i);}
+\DoxyCodeLine{00050     \textcolor{keywordtype}{byte} addBlock(\textcolor{keywordtype}{byte} slots, \textcolor{keywordtype}{byte} recSize);}
+\DoxyCodeLine{00051 }
+\DoxyCodeLine{00052     \textcolor{comment}{// block info.}}
+\DoxyCodeLine{00053     \textcolor{keywordtype}{byte} blockSize(\textcolor{keywordtype}{byte} \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00054     word blockStart(\textcolor{keywordtype}{byte} blockId);}
+\DoxyCodeLine{00055     word blockEnd(\textcolor{keywordtype}{byte} \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00056 }
+\DoxyCodeLine{00057     \textcolor{comment}{// Working with a slot in a block.}}
+\DoxyCodeLine{00058     \textcolor{keywordtype}{byte} getSlots(\textcolor{keywordtype}{byte} \textcolor{keywordtype}{id}) \{ \textcolor{keywordflow}{return} blocksA[id].slots; \}}
+\DoxyCodeLine{00059     \textcolor{keywordtype}{byte} readByte(\textcolor{keywordtype}{byte} blockId, \textcolor{keywordtype}{byte} slot, \textcolor{keywordtype}{byte} offset);}
+\DoxyCodeLine{00060     \textcolor{keywordtype}{bool} readSlot(\textcolor{keywordtype}{byte} blockId, \textcolor{keywordtype}{byte} slot, \textcolor{keywordtype}{void}* r);}
+\DoxyCodeLine{00061     \textcolor{keywordtype}{bool} writeByte(\textcolor{keywordtype}{byte} blockId, \textcolor{keywordtype}{byte} slot, \textcolor{keywordtype}{byte} offset, \textcolor{keywordtype}{byte} value);}
+\DoxyCodeLine{00062     \textcolor{keywordtype}{bool} writeSlot(\textcolor{keywordtype}{byte} blockId, \textcolor{keywordtype}{byte} slot, \textcolor{keywordtype}{void}* r);}
+\DoxyCodeLine{00063 }
+\DoxyCodeLine{00064     \textcolor{keywordtype}{void} print(\textcolor{keywordtype}{byte} \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00065     \textcolor{keywordtype}{void} printMemUsage();}
+\DoxyCodeLine{00066 \};}
+\DoxyCodeLine{00073 \textcolor{keyword}{class }blockMem\_C \{}
+\DoxyCodeLine{00074 \textcolor{keyword}{private}:}
+\DoxyCodeLine{00075     \textcolor{keywordtype}{byte} id;}
+\DoxyCodeLine{00076     storageBlock\_C* memManager;}
+\DoxyCodeLine{00077     \textcolor{keywordtype}{byte} blockStart() \{ \textcolor{keywordflow}{return} memManager-\/>blockStart(\textcolor{keywordtype}{id}); \}}
+\DoxyCodeLine{00078     \textcolor{keywordtype}{byte} blockEnd() \{ \textcolor{keywordflow}{return} memManager-\/>blockEnd(\textcolor{keywordtype}{id}); \}}
+\DoxyCodeLine{00079 \textcolor{keyword}{public}:}
+\DoxyCodeLine{00080     \textcolor{keywordtype}{void} setId(\textcolor{keywordtype}{byte} id1) \{ \textcolor{keywordtype}{id} = id1; \}}
+\DoxyCodeLine{00081     \textcolor{keywordtype}{byte} getId() \{ \textcolor{keywordflow}{return} id; \}}
+\DoxyCodeLine{00082     \textcolor{keywordtype}{void} setMemManager(storageBlock\_C\& o) \{ memManager = \&o; \}}
+\DoxyCodeLine{00083     \textcolor{keywordtype}{byte} blockSize() \{ \textcolor{keywordflow}{return} memManager-\/>blockSize(\textcolor{keywordtype}{id}); \}}
+\DoxyCodeLine{00084     \textcolor{keywordtype}{byte} slotSize() \{ \textcolor{keywordflow}{return} memManager-\/>blocksA[id].size; \}}
+\DoxyCodeLine{00085     \textcolor{keywordtype}{byte} readByte(\textcolor{keywordtype}{byte} slot, \textcolor{keywordtype}{byte} offset) \{ \textcolor{keywordflow}{return} memManager-\/>readByte(\textcolor{keywordtype}{id}, slot, offset); \}}
+\DoxyCodeLine{00086     \textcolor{keywordtype}{bool} readSlot(\textcolor{keywordtype}{byte} slot, \textcolor{keywordtype}{void}* r);}
+\DoxyCodeLine{00087     \textcolor{keywordtype}{bool} writeByte(\textcolor{keywordtype}{byte} slot, \textcolor{keywordtype}{byte} offset, \textcolor{keywordtype}{byte} value) \{ \textcolor{keywordflow}{return} memManager-\/>writeByte(\textcolor{keywordtype}{id}, slot, offset, value); \}}
+\DoxyCodeLine{00088     \textcolor{keywordtype}{bool} writeSlot(\textcolor{keywordtype}{byte} slot, \textcolor{keywordtype}{void}* r) \{ \textcolor{keywordflow}{return} memManager-\/>writeSlot(\textcolor{keywordtype}{id}, slot, r); \}}
+\DoxyCodeLine{00089     \textcolor{keywordtype}{void} print() \{ \textcolor{keywordflow}{return} memManager-\/>print(\textcolor{keywordtype}{id}); \}}
+\DoxyCodeLine{00090     \textcolor{keywordtype}{byte} getSlots() \{ \textcolor{keywordflow}{return} memManager-\/>getSlots(\textcolor{keywordtype}{id});; \}}
+\DoxyCodeLine{00091 \};}
+\DoxyCodeLine{00092 }
+\DoxyCodeLine{00093 }
+\DoxyCodeLine{00094 }
+\DoxyCodeLine{00095 }
+\DoxyCodeLine{00096 \textcolor{preprocessor}{\#define sBlocks(S) static storageBlock\_T storageBlocksA[S]; maxStorageBlocks = S;}}
+\DoxyCodeLine{00097 }
+\DoxyCodeLine{00098 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}
