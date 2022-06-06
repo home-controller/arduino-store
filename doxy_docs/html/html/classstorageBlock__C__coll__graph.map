@@ -1,0 +1,7 @@
+<map id="storageBlock_C" name="storageBlock_C">
+<area shape="rect" id="node1" title="Blocks of storage. eg. 1 block for 1wire chips and another for room data. each of different lengths w..." alt="" coords="67,300,258,744"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,160,80,237"/>
+<area shape="rect" id="node3" title=" " alt="" coords="183,5,233,83"/>
+<area shape="rect" id="node4" href="$store_8h.html#structstorageBlock__T" title="Storage block TYPE info." alt="" coords="268,160,391,237"/>
+<area shape="rect" id="node5" title=" " alt="" coords="302,5,357,83"/>
+</map>

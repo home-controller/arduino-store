@@ -1,0 +1,4 @@
+<map id="blockMem_C::blockEnd" name="blockMem_C::blockEnd">
+<area shape="rect" id="node1" title=" " alt="" coords="5,5,179,32"/>
+<area shape="rect" id="node2" href="$classstorageBlock__C.html#a2467b7e6f601f96efc42a6c32a023522" title="get block end index. i.e. the address of last byte used by the block. If block size is 0 there isn&#39;t ..." alt="" coords="227,5,417,32"/>
+</map>

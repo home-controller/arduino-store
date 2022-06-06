@@ -5,8 +5,8 @@
     </info>
 <chapter>
     <title>Class Documentation</title>
-    <xi:include href="classblock_mem___c.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
-    <xi:include href="classstorage_block___c.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="classblockMem__C.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="classstorageBlock__C.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
 </chapter>
 <chapter>
     <title>File Documentation</title>

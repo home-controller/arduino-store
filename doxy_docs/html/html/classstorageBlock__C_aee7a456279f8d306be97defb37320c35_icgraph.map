@@ -1,0 +1,4 @@
+<map id="storageBlock_C::readByte" name="storageBlock_C::readByte">
+<area shape="rect" id="node1" title="Read a byte of data from a storage block slot." alt="" coords="227,5,417,32"/>
+<area shape="rect" id="node2" href="$classblockMem__C.html#a553a53a98f4ef6f9b6f1f7b69d366214" title=" " alt="" coords="5,5,179,32"/>
+</map>

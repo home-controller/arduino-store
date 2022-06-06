@@ -16,6 +16,16 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript">
+window.MathJax = {
+  options: {
+    ignoreHtmlClass: 'tex2jax_ignore',
+    processHtmlClass: 'tex2jax_process'
+  }
+};
+</script>
+<script type="text/javascript" id="MathJax-script" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/es5/tex-chtml.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -88,9 +98,9 @@ $(document).ready(function(){initNavTree('annotated.html',''); initResizable(); 
 <div class="contents">
 <div class="textblock">Here are the classes, structs, unions and interfaces with brief descriptions:</div><div class="directory">
 <table class="directory">
-<tr id="row_0_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classblock_mem___c.html" target="_self">blockMem_C</a></td><td class="desc">Wrapper for <a class="el" href="classstorage_block___c.html" title="Blocks of storage. eg. 1 block for 1wire chips and another for room data. each of different lengths w...">storageBlock_C</a> but working with only 1 block id(eg all the 1wire chips saved info) </td></tr>
-<tr id="row_1_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classstorage_block___c.html" target="_self">storageBlock_C</a></td><td class="desc">Blocks of storage. eg. 1 block for 1wire chips and another for room data. each of different lengths with different ids </td></tr>
-<tr id="row_2_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="store_8h.html#structstorage_block___t" target="_self">storageBlock_T</a></td><td class="desc">Storage block TYPE info </td></tr>
+<tr id="row_0_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classblockMem__C.html" target="_self">blockMem_C</a></td><td class="desc">Wrapper for <a class="el" href="classstorageBlock__C.html" title="Blocks of storage. eg. 1 block for 1wire chips and another for room data. each of different lengths w...">storageBlock_C</a> but working with only 1 block id(eg all the 1wire chips saved info) </td></tr>
+<tr id="row_1_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classstorageBlock__C.html" target="_self">storageBlock_C</a></td><td class="desc">Blocks of storage. eg. 1 block for 1wire chips and another for room data. each of different lengths with different ids </td></tr>
+<tr id="row_2_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="store_8h.html#structstorageBlock__T" target="_self">storageBlock_T</a></td><td class="desc">Storage block TYPE info </td></tr>
 </table>
 </div><!-- directory -->
 </div><!-- contents -->
@@ -98,7 +108,7 @@ $(document).ready(function(){initNavTree('annotated.html',''); initResizable(); 
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Mon Jun 6 2022 20:53:51 for arduino store by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Mon Jun 6 2022 21:10:18 for arduino store by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>

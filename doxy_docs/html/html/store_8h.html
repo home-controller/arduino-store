@@ -16,6 +16,16 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript">
+window.MathJax = {
+  options: {
+    ignoreHtmlClass: 'tex2jax_ignore',
+    processHtmlClass: 'tex2jax_process'
+  }
+};
+</script>
+<script type="text/javascript" id="MathJax-script" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/es5/tex-chtml.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -98,41 +108,35 @@ $(document).ready(function(){initNavTree('store_8h.html',''); initResizable(); }
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="store_8h__incl.png" border="0" usemap="#asrc_2store_8h" alt=""/></div>
-<map name="asrc_2store_8h" id="asrc_2store_8h">
-<area shape="rect" title="To help with very simple data saving between MCU resets. For now only using inbuilt EEPROM." alt="" coords="5,5,96,32"/>
-<area shape="rect" title=" " alt="" coords="9,80,93,107"/>
-</map>
+<div class="center"><iframe scrolling="no" frameborder="0" src="store_8h__incl.svg" width="102" height="112"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
 </div>
 </div><div class="textblock"><div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-1-trigger" src="closed.png" alt="+"/> This graph shows which files directly or indirectly include this file:</div>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="store_8h__dep__incl.png" border="0" usemap="#asrc_2store_8hdep" alt=""/></div>
-<map name="asrc_2store_8hdep" id="asrc_2store_8hdep">
-<area shape="rect" title="To help with very simple data saving between MCU resets. For now only using inbuilt EEPROM." alt="" coords="13,5,103,32"/>
-<area shape="rect" href="store_8cpp.html" title=" " alt="" coords="5,80,111,107"/>
-</map>
+<div class="center"><iframe scrolling="no" frameborder="0" src="store_8h__dep__incl.svg" width="116" height="112"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
 </div>
 </div>
 <p><a href="store_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:structstorage_block___t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="store_8h.html#structstorage_block___t">storageBlock_T</a></td></tr>
-<tr class="memdesc:structstorage_block___t"><td class="mdescLeft">&#160;</td><td class="mdescRight">Storage block TYPE info.  <a href="store_8h.html#structstorage_block___t">More...</a><br /></td></tr>
-<tr class="separator:structstorage_block___t"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstorage_block___c.html">storageBlock_C</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Blocks of storage. eg. 1 block for 1wire chips and another for room data. each of different lengths with different ids.  <a href="classstorage_block___c.html#details">More...</a><br /></td></tr>
+<tr class="memitem:structstorageBlock__T"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="store_8h.html#structstorageBlock__T">storageBlock_T</a></td></tr>
+<tr class="memdesc:structstorageBlock__T"><td class="mdescLeft">&#160;</td><td class="mdescRight">Storage block TYPE info.  <a href="store_8h.html#structstorageBlock__T">More...</a><br /></td></tr>
+<tr class="separator:structstorageBlock__T"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstorageBlock__C.html">storageBlock_C</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Blocks of storage. eg. 1 block for 1wire chips and another for room data. each of different lengths with different ids.  <a href="classstorageBlock__C.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblock_mem___c.html">blockMem_C</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrapper for <a class="el" href="classstorage_block___c.html" title="Blocks of storage. eg. 1 block for 1wire chips and another for room data. each of different lengths w...">storageBlock_C</a> but working with only 1 block id(eg all the 1wire chips saved info).  <a href="classblock_mem___c.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classblockMem__C.html">blockMem_C</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrapper for <a class="el" href="classstorageBlock__C.html" title="Blocks of storage. eg. 1 block for 1wire chips and another for room data. each of different lengths w...">storageBlock_C</a> but working with only 1 block id(eg all the 1wire chips saved info).  <a href="classblockMem__C.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:a0eee8221fc0e018111a612d1c2a28523"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="store_8h.html#a0eee8221fc0e018111a612d1c2a28523">sBlocks</a>(S)&#160;&#160;&#160;static <a class="el" href="store_8h.html#structstorage_block___t">storageBlock_T</a> storageBlocksA[S]; maxStorageBlocks = S;</td></tr>
+<tr class="memitem:a0eee8221fc0e018111a612d1c2a28523"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="store_8h.html#a0eee8221fc0e018111a612d1c2a28523">sBlocks</a>(S)&#160;&#160;&#160;static <a class="el" href="store_8h.html#structstorageBlock__T">storageBlock_T</a> storageBlocksA[S]; maxStorageBlocks = S;</td></tr>
 <tr class="separator:a0eee8221fc0e018111a612d1c2a28523"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -149,8 +153,8 @@ Macros</h2></td></tr>
 
 <p class="definition">Definition in file <a class="el" href="store_8h_source.html">store.h</a>.</p>
 </div><hr/><h2 class="groupheader">Class Documentation</h2>
-<a name="structstorage_block___t" id="structstorage_block___t"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#structstorage_block___t">&#9670;&nbsp;</a></span>storageBlock_T</h2>
+<a name="structstorageBlock__T" id="structstorageBlock__T"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structstorageBlock__T">&#9670;&nbsp;</a></span>storageBlock_T</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -168,13 +172,9 @@ Macros</h2></td></tr>
 <div id="dynsection-2-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-2-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="structstorage_block___t__coll__graph.png" border="0" usemap="#astorage_block___t_coll__map" alt="Collaboration graph"/></div>
-<map name="astorage_block___t_coll__map" id="astorage_block___t_coll__map">
-<area shape="rect" title="Storage block TYPE info." alt="" coords="10,109,133,136"/>
-<area shape="rect" title=" " alt="" coords="5,5,60,32"/>
-<area shape="rect" title=" " alt="" coords="85,5,135,32"/>
-</map>
-<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="structstorageBlock__T__coll__graph.svg" width="143" height="243"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
 <table class="fieldtable">
 <tr><th colspan="3">Class Members</th></tr>
 <tr><td class="fieldtype">
@@ -212,7 +212,7 @@ start</td>
           <td>(</td>
           <td class="paramtype">&#160;</td>
           <td class="paramname">S</td><td>)</td>
-          <td>&#160;&#160;&#160;static <a class="el" href="store_8h.html#structstorage_block___t">storageBlock_T</a> storageBlocksA[S]; maxStorageBlocks = S;</td>
+          <td>&#160;&#160;&#160;static <a class="el" href="store_8h.html#structstorageBlock__T">storageBlock_T</a> storageBlocksA[S]; maxStorageBlocks = S;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -227,7 +227,7 @@ start</td>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="store_8h.html">store.h</a></li>
-    <li class="footer">Generated on Mon Jun 6 2022 20:53:51 for arduino store by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Mon Jun 6 2022 21:10:18 for arduino store by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>

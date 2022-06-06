@@ -1,0 +1,8 @@
+<map id="blockMem_C" name="blockMem_C">
+<area shape="rect" id="node1" title="Wrapper for storageBlock_C but working with only 1 block id(eg all the 1wire chips saved info)." alt="" coords="5,807,184,1148"/>
+<area shape="rect" id="node2" title=" " alt="" coords="109,5,160,83"/>
+<area shape="rect" id="node3" href="$classstorageBlock__C.html" title="Blocks of storage. eg. 1 block for 1wire chips and another for room data. each of different lengths w..." alt="" coords="158,300,349,744"/>
+<area shape="rect" id="node5" href="$store_8h.html#structstorageBlock__T" title="Storage block TYPE info." alt="" coords="240,160,363,237"/>
+<area shape="rect" id="node4" title=" " alt="" coords="387,160,461,237"/>
+<area shape="rect" id="node6" title=" " alt="" coords="274,5,329,83"/>
+</map>

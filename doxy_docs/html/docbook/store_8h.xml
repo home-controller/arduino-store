@@ -12,7 +12,7 @@
     <informalfigure>
         <mediaobject>
             <imageobject>
-                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="store_8h__incl.png"></imagedata>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="store_8h__incl.svg"></imagedata>
             </imageobject>
         </mediaobject>
     </informalfigure>
@@ -21,7 +21,7 @@ This graph shows which files directly or indirectly include this file:<para>
     <informalfigure>
         <mediaobject>
             <imageobject>
-                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="store_8h__dep__incl.png"></imagedata>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="store_8h__dep__incl.svg"></imagedata>
             </imageobject>
         </mediaobject>
     </informalfigure>
@@ -29,24 +29,24 @@ This graph shows which files directly or indirectly include this file:<para>
 <simplesect>
     <title>Classes    </title>
         <itemizedlist>
-            <listitem><para>struct <link linkend="_store_8h_1structstorage_block___t">storageBlock_T</link></para>
+            <listitem><para>struct <link linkend="_store_8h_1structstorageBlock__T">storageBlock_T</link></para>
 
 <para>Storage block TYPE info. </para>
 </listitem>
-            <listitem><para>class <link linkend="_classstorage_block___c">storageBlock_C</link></para>
+            <listitem><para>class <link linkend="_classstorageBlock__C">storageBlock_C</link></para>
 
 <para>Blocks of storage. eg. 1 block for 1wire chips and another for room data. each of different lengths with different ids. </para>
 </listitem>
-            <listitem><para>class <link linkend="_classblock_mem___c">blockMem_C</link></para>
+            <listitem><para>class <link linkend="_classblockMem__C">blockMem_C</link></para>
 
-<para>Wrapper for <link linkend="_classstorage_block___c">storageBlock_C</link> but working with only 1 block id(eg all the 1wire chips saved info). </para>
+<para>Wrapper for <link linkend="_classstorageBlock__C">storageBlock_C</link> but working with only 1 block id(eg all the 1wire chips saved info). </para>
 </listitem>
         </itemizedlist>
 </simplesect>
 <simplesect>
     <title>Macros    </title>
         <itemizedlist>
-            <listitem><para>#define <link linkend="_store_8h_1a0eee8221fc0e018111a612d1c2a28523">sBlocks</link>(S)   static <link linkend="_store_8h_1structstorage_block___t">storageBlock_T</link> storageBlocksA[S]; maxStorageBlocks = S;</para>
+            <listitem><para>#define <link linkend="_store_8h_1a0eee8221fc0e018111a612d1c2a28523">sBlocks</link>(S)   static <link linkend="_store_8h_1structstorageBlock__T">storageBlock_T</link> storageBlocksA[S]; maxStorageBlocks = S;</para>
 </listitem>
         </itemizedlist>
 </simplesect>
@@ -104,7 +104,7 @@ Collaboration diagram for storageBlock_T:<para>
     <informalfigure>
         <mediaobject>
             <imageobject>
-                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="structstorage_block___t__coll__graph.png"></imagedata>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="structstorageBlock__T__coll__graph.svg"></imagedata>
             </imageobject>
         </mediaobject>
     </informalfigure>
@@ -136,7 +136,7 @@ Collaboration diagram for storageBlock_T:<para>
     <title>sBlocks</title>
 <indexterm><primary>sBlocks</primary><secondary>store.h</secondary></indexterm>
 <indexterm><primary>store.h</primary><secondary>sBlocks</secondary></indexterm>
-<para><computeroutput>#define sBlocks( S)   static <link linkend="_store_8h_1structstorage_block___t">storageBlock_T</link> storageBlocksA[S]; maxStorageBlocks = S;</computeroutput></para><para>
+<para><computeroutput>#define sBlocks( S)   static <link linkend="_store_8h_1structstorageBlock__T">storageBlock_T</link> storageBlocksA[S]; maxStorageBlocks = S;</computeroutput></para><para>
 Definition at line <link linkend="_store_8h_source_1l00096">96</link> of file <link linkend="_store_8h_source">store.h</link>.</para>
 </section>
 </section>
