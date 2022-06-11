@@ -144,7 +144,7 @@ byte storageBlock_C::readByte( byte blockId, byte slot, byte offset ) {
  * @brief Read a var from permanent storage eg. EEPROM into a var/struct, copys mem of size = to the slot size given when addBlock was called.
  *
  * @param[in] blockId the block of storage, ie. the index to the array
- * @param[in] slot The slot to read, mem copy len is = the size of the rec/slot
+ * @param[in] slot The slot to read, First slot is 0.
  * @param[out] r pointer to the memory to copy the slot into. As not using templates need to make sure sizeof(var pointed to by r) >= slot size.
  * @return true if no problems
  * @return false if slot > num of slots in block.
@@ -207,7 +207,7 @@ bool storageBlock_C::writeByte( byte blockId, byte slot, byte offset, byte value
 /**
  * @brief Read a slot of data from storage. e.g. eeprom, flash, SDcard(only eeprom for now)
  * 
- * @param[in] slot  The slot to read, mem copy len is = the size of the rec/slot. 0 for first.
+ * @param[in] slot  The slot to read. 0 for first slot.
  * @param[out] r  pointer to the memory to copy the slot into. As not using templates need to make sure sizeof(var pointed to by r) >= slot size.
 
  * @return true true if no problems
