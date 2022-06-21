@@ -664,7 +664,7 @@ Parameters</title>
                             </row>
                             <row>
 <entry>in</entry><entry>slot</entry><entry>
-<para>The slot to read, mem copy len is = the size of the rec/slot </para>
+<para>The slot to read, First slot is 0. </para>
 </entry>
                             </row>
                             <row>

@@ -227,7 +227,7 @@ Parameters</title>
                         <tbody>
                             <row>
 <entry>in</entry><entry>slot</entry><entry>
-<para>The slot to read, mem copy len is = the size of the rec/slot. 0 for first. </para>
+<para>The slot to read. 0 for first slot. </para>
 </entry>
                             </row>
                             <row>

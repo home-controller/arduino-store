@@ -11,8 +11,7 @@ Blocks of storage. eg. 1 block for 1wire chips and another for room data. each o
 
 
 
-Collaboration diagram for storage\+Block\+\_\+C\+:
-\nopagebreak
+Collaboration diagram for storage\+Block\+\_\+C\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -224,8 +223,7 @@ References \textbf{ blocksA}, \textbf{ storage\+Block\+\_\+\+T\+::size}, \textbf
 
 Referenced by \textbf{ block\+Mem\+\_\+\+C\+::block\+End()}, and \textbf{ print()}.
 
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -269,8 +267,7 @@ References \textbf{ blocksA}, \textbf{ storage\+Block\+\_\+\+T\+::size}, and \te
 
 Referenced by \textbf{ block\+Mem\+\_\+\+C\+::block\+Size()}, and \textbf{ print()}.
 
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -314,8 +311,7 @@ References \textbf{ blocksA}, and \textbf{ storage\+Block\+\_\+\+T\+::start}.
 
 Referenced by \textbf{ block\+Mem\+\_\+\+C\+::block\+Start()}.
 
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -345,8 +341,7 @@ References \textbf{ blocksA}, and \textbf{ storage\+Block\+\_\+\+T\+::slots}.
 
 Referenced by \textbf{ block\+Mem\+\_\+\+C\+::get\+Slots()}.
 
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -420,16 +415,14 @@ References \textbf{ block\+End()}, \textbf{ blocksA}, and \textbf{ block\+Size()
 
 Referenced by \textbf{ block\+Mem\+\_\+\+C\+::print()}.
 
-Here is the call graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=346pt]{classstorageBlock__C_a5689bada4bede0c81ab36fe2f06cc9f0_cgraph}
 \end{center}
 \end{figure}
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -518,8 +511,7 @@ References \textbf{ blocksA}, \textbf{ storage\+Block\+\_\+\+T\+::size}, and \te
 
 Referenced by \textbf{ block\+Mem\+\_\+\+C\+::read\+Byte()}.
 
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -540,7 +532,7 @@ Read a var from permanent storage eg. EEPROM into a var/struct, copys mem of siz
 \begin{DoxyParams}[1]{Parameters}
 \mbox{\texttt{ in}}  & {\em block\+Id} & the block of storage, ie. the index to the array \\
 \hline
-\mbox{\texttt{ in}}  & {\em slot} & The slot to read, mem copy len is = the size of the rec/slot \\
+\mbox{\texttt{ in}}  & {\em slot} & The slot to read, First slot is 0. \\
 \hline
 \mbox{\texttt{ out}}  & {\em r} & pointer to the memory to copy the slot into. As not using templates need to make sure sizeof(var pointed to by r) $>$= slot size. \\
 \hline
@@ -589,8 +581,7 @@ References \textbf{ blocksA}, \textbf{ storage\+Block\+\_\+\+T\+::size}, and \te
 
 Referenced by \textbf{ block\+Mem\+\_\+\+C\+::read\+Slot()}.
 
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -625,8 +616,7 @@ References \textbf{ blocksA}, \textbf{ storage\+Block\+\_\+\+T\+::size}, and \te
 
 Referenced by \textbf{ block\+Mem\+\_\+\+C\+::write\+Byte()}.
 
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -683,8 +673,7 @@ References \textbf{ blocksA}, \textbf{ storage\+Block\+\_\+\+T\+::size}, and \te
 
 Referenced by \textbf{ block\+Mem\+\_\+\+C\+::write\+Slot()}.
 
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
