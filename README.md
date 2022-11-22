@@ -1,7 +1,7 @@
-Main Page for arduino storage                         {#mainpage}
+Main Page for Arduino storage.
 ============
 
-## For storing setup vars etc. to more permanent storage like eeprom, flash etc.
+## For storing setup variables etc. to more permanent storage like eeprom, flash etc.
 
 * This is a work in progress.
 * I am getting the parts working as I need then for my home auto projects.
@@ -12,6 +12,6 @@ and be easier to change the storage type to flash SD card etc.
 - [x] incomplete
 - [ ] single variable storage.
 - [X] mega328p eeprom blocks of storage split into slots of same length.
-- [x] More or less have the blocks of storage slots working for eprom on the mega328p
+- [x] Think blocks of storage slots working for eprom on the mega328p
 - [ ] RP2040 flash.
 - [ ] complete
