@@ -1,7 +1,7 @@
 Main Page for Arduino storage.
 ============
 
-## For storing setup variables etc. to more permanent storage like eeprom, flash etc.
+### For storing setup variables etc. to more permanent storage like eeprom, flash etc.
 
 * This is a work in progress.
 * I am getting the parts working as I need then for my home auto projects.
