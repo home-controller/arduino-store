@@ -17,15 +17,16 @@
 
 #include <Arduino.h>
 
- /**
-  * @brief Storage block TYPE info
-  *
-  */
-typedef struct {
-    word start;  /// EEprom start index.
-    byte slots;  //!< Number of records to save space for in EEPROM for.
-    byte size;   ///< sizeof each storage slot in bytes.
-}storageBlock_T;
+/**
+ * @brief Storage block TYPE info
+ *
+ */
+typedef struct
+{
+    word start; /// EEprom start index.
+    byte slots; //!< Number of records to save space for in EEPROM for.
+    byte size;  ///< sizeof each storage slot in bytes.
+} storageBlock_T;
 
 /**
  * @brief Blocks of storage. eg. 1 block for 1wire chips and another for room data. each of different lengths
@@ -35,16 +36,17 @@ typedef struct {
  * @param a a pointer to an extern array used to store the storage info.
  * @param startIndex for example with eeprom it could be 15 to stat using the eeprom at address 15;
  */
-class storageBlock_C {
+class storageBlock_C
+{
 private:
-    uint16_t nextStartAddr;     /// The address/index to start at for any new block.
+    uint16_t nextStartAddr; /// The address/index to start at for any new block.
     byte maxBlocks;         /// The max No. Blocks. The number of array elements in the array used to store the block info in (blocksA).
     byte slotsUsed = 0;     /// No. of elements of blocksA[] used.
 public:
-    storageBlock_T* blocksA;    /// Pointer to an array used to store each slots details in.
+    storageBlock_T *blocksA; /// Pointer to an array used to store each slots details in.
 
-    //setup
-    storageBlock_C(byte maxBlocks, storageBlock_T a[ ], byte startIndex = 0);
+    // setup
+    storageBlock_C(byte maxBlocks, storageBlock_T a[], byte startIndex = 0);
     ~storageBlock_C();
     void leaveFirst(byte i);
     byte addBlock(byte slots, byte recSize);
@@ -57,9 +59,9 @@ public:
     // Working with a slot in a block.
     byte getSlots(byte id) { return blocksA[id].slots; }
     byte readByte(byte blockId, byte slot, byte offset);
-    bool readSlot(byte blockId, byte slot, void* r);
+    bool readSlot(byte blockId, byte slot, void *r);
     bool writeByte(byte blockId, byte slot, byte offset, byte value);
-    bool writeSlot(byte blockId, byte slot, void* r);
+    bool writeSlot(byte blockId, byte slot, void *r);
 
     void print(byte id);
     void printMemUsage();
@@ -70,29 +72,34 @@ public:
  * same size. e.g if we need to store 15 arrays of bytes each 7 bytes long.
  * i.e. Equivelent to: byte arrayOfType[getSlots()=15][7];
  */
-class blockMem_C {
+class blockMem_C
+{
 private:
     byte id;
-    storageBlock_C* memManager;
+    storageBlock_C *memManager;
     byte blockStart() { return memManager->blockStart(id); }
     byte blockEnd() { return memManager->blockEnd(id); }
+
 public:
     void setId(byte id1) { id = id1; }
     byte getId() { return id; }
-    void setMemManager(storageBlock_C& o) { memManager = &o; }
-    byte blockSize() { return memManager->blockSize(id); }///mem for block = number of slots * slot size.
+    void setMemManager(storageBlock_C &o) { memManager = &o; }
+    byte blockSize() { return memManager->blockSize(id); } /// mem for block = number of slots * slot size.
     byte slotSize() { return memManager->blocksA[id].size; }
     byte readByte(byte slot, byte offset) { return memManager->readByte(id, slot, offset); }
-    bool readSlot(byte slot, void* r);
+    bool readSlot(byte slot, void *r);
     bool writeByte(byte slot, byte offset, byte value) { return memManager->writeByte(id, slot, offset, value); }
-    bool writeSlot(byte slot, void* r) { return memManager->writeSlot(id, slot, r); }
+    bool writeSlot(byte slot, void *r) { return memManager->writeSlot(id, slot, r); }
     void print() { return memManager->print(id); }
-    byte getSlots() { return memManager->getSlots(id);; }
+    byte getSlots()
+    {
+        return memManager->getSlots(id);
+        ;
+    }
 };
 
-
-
-
-#define sBlocks(S) static storageBlock_T storageBlocksA[S]; maxStorageBlocks = S;
+#define sBlocks(S)                           \
+    static storageBlock_T storageBlocksA[S]; \
+    maxStorageBlocks = S;
 
 #endif
